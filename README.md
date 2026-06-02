@@ -31,7 +31,7 @@
 ```python
 class JachinSamuel:
     name       = "Jachin Samuel J"
-    age        = 17
+    age        = 18
     location   = "Kanyakumari → Coimbatore, India 🇮🇳"
     degree     = "B.Tech CSE @ Karunya (2025–2029)"
     cgpa       = 8.84
