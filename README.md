@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&duration=2800&pause=900&color=A78BFA&center=true&vCenter=true&width=780&lines=%F0%9F%9A%80+Full-Stack+Dev+%7C+React+%2B+Flask+%2B+PostgreSQL;%F0%9F%8D%B1+Creator+of+FoodyBuddy+%E2%80%94+live+at+foodybuddy.shop;%F0%9F%A9%BA+Creator+of+MaternCare+%E2%80%94+AI+health+risk+analyzer;%F0%9F%8E%99%EF%B8%8F+Creator+of+VoiceCalc+%E2%80%94+voice+controlled+calculator;%F0%9F%8E%93+Computer+Science+%40+Karunya+Institute;%F0%9F%93%A6+Focused+on+shipping+scalable+products)](https://github.com/jachinsamuel)
+[![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&duration=2800&pause=900&color=A78BFA&center=true&vCenter=true&width=780&lines=%F0%9F%9A%80+Full-Stack+Dev+%7C+React+%2B+Flask+%2B+PostgreSQL;%E2%99%A0%EF%B8%8F+Creator+of+Ace+%E2%80%94+AI-powered+Git+Copilot;%F0%9F%8D%B1+Creator+of+FoodyBuddy+%E2%80%94+live+at+foodybuddy.shop;%F0%9F%A9%BA+Creator+of+MaternCare+%E2%80%94+AI+health+risk+analyzer;%F0%9F%8E%99%EF%B8%8F+Creator+of+VoiceCalc+%E2%80%94+voice+controlled+calculator;%F0%9F%8E%93+Computer+Science+%40+Karunya+Institute;%F0%9F%93%A6+Focused+on+shipping+scalable+products)](https://github.com/jachinsamuel)
 
 </div>
 
@@ -119,6 +119,7 @@ My focus is on building scalable, end-to-end applications that solve real proble
 
 | Project | Stack | Description |
 |:---|:---:|:---|
+| [**Ace**](https://github.com/jachinsamuel/Ace) <br/> *(Git Copilot)* | `Python` `CLI` `AI` | Intelligent command-line tool that brings AI assistance to Git workflows. Translates natural language to Git commands, auto-generates conventional commits, and features a TUI dashboard. |
 | [**FoodyBuddy**](https://foodybuddy.shop) <br/> *(Live)* | `React` `Flask` `PostgreSQL` `Razorpay` | Campus canteen ordering platform serving real users. Features online payments, live order tracking, WhatsApp notifications, and an admin dashboard with receipt generation. |
 | [**MaternCare**](https://materncare.vercel.app/) <br/> *(Live)* | `React` `Flask` `Recharts` `Python` | Maternal health risk analyzer utilizing real-time risk scoring classification algorithms. Features a multi-metric interactive dashboard and an accessible UI. |
 | [**VoiceCalc**](https://github.com/jachinsamuel/voicecalc) | `Flask` `Web Speech API` `JS` | Browser-based voice-controlled calculator. Translates spoken language into mathematical operations in real-time using browser APIs and a Python backend. |
