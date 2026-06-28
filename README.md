@@ -140,7 +140,7 @@ class Developer:
 <table border="0">
   <tr>
     <td width="50%" valign="top">
-      <img src="https://github-readme-stats.vercel.app/api?username=jachinsamuel&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6&icon_color=06b6d4" alt="GitHub Stats" width="100%" />
+      <img src="https://github-readme-stats.vercel.app/api?username=jachinsamuel&show_icons=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6&icon_color=06b6d4" alt="GitHub Stats" width="100%" />
     </td>
     <td width="50%" valign="top">
       <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jachinsamuel&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6" alt="Top Languages" width="100%" />
