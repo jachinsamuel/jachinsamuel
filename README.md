@@ -1,12 +1,12 @@
 <div align="center">
 
-[![Banner](https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=200&section=header&text=Jachin%20Samuel&fontSize=52&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Software%20Engineer%20%7C%20Full-Stack%20%2B%20AI%20Developer%20%7C%20Building%20Products%20That%20Matter&descAlignY=60&descSize=15&descColor=a78bfa)](https://github.com/jachinsamuel)
+[![Banner](https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,40:1f1938,100:302b63&height=220&section=header&text=Jachin%20Samuel&fontSize=54&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Software%20Engineer%20%7C%20Full-Stack%20%2B%20AI%20Developer%20%7C%20Building%20Products%20That%20Matter&descAlignY=60&descSize=16&descColor=a78bfa)](https://github.com/jachinsamuel)
 
 </div>
 
 <div align="center">
 
-[![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&duration=2800&pause=900&color=A78BFA&center=true&vCenter=true&width=850&lines=%F0%9F%9A%80+Full-Stack+%2B+AI+Dev+%7C+React+%2B+FastAPI+%2B+Python;%E2%99%A0%EF%B8%8F+Creator+of+Ace+%E2%80%94+AI-powered+Git+Copilot;%F0%9F%A7%A0+Creator+of+Nexus+%E2%80%94+Cognitive+RAG+%2B+Local+AI+Workspace;%F0%9F%8D%B1+Creator+of+FoodyBuddy+%E2%80%94+live+at+foodybuddy.shop;%F0%9F%A9%BA+Creator+of+MaternCare+%E2%80%94+AI+health+risk+analyzer;%F0%9F%8E%99%EF%B8%8F+Creator+of+VoiceCalc+%E2%80%94+voice+controlled+calculator;%F0%9F%8E%93+Computer+Science+%40+Karunya+Institute;%F0%9F%93%A6+Focused+on+shipping+scalable+products)](https://github.com/jachinsamuel)
+[![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=21&duration=2800&pause=900&color=A78BFA&center=true&vCenter=true&width=860&lines=%F0%9F%9A%80+Full-Stack+%2B+AI+Developer+%7C+React+%2B+FastAPI+%2B+Python;%E2%99%A0%EF%B8%8F+Creator+of+Ace+%E2%80%94+AI-powered+Git+Copilot;%F0%9F%A7%A0+Creator+of+Nexus+%E2%80%94+Cognitive+RAG+%2B+Local+AI+Workspace;%F0%9F%8D%B1+Creator+of+FoodyBuddy+%E2%80%94+Live+at+foodybuddy.shop;%F0%9F%8E%99%EF%B8%8F+Creator+of+VoiceCalc+%E2%80%94+Voice-controlled+calculator;%F0%9F%A9%BA+Creator+of+MaternCare+%E2%80%94+AI+health+risk+analyzer;%F0%9F%8E%93+Computer+Science+%40+Karunya+Institute;%F0%9F%93%A6+Focused+on+shipping+scalable+products)](https://github.com/jachinsamuel)
 
 </div>
 
@@ -17,14 +17,20 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/jachinsamuel/)
 &nbsp;
 [![Email](https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jachinsamuel007@gmail.com)
+
+<br/>
+
+[![FoodyBuddy Live](https://img.shields.io/badge/🍔_FoodyBuddy-Live_App-8B5CF6?style=for-the-badge)](https://foodybuddy.shop)
 &nbsp;
-[![Live App](https://img.shields.io/badge/FoodyBuddy-Live-38bdae?style=for-the-badge)](https://foodybuddy.shop)
+[![VoiceCalc Live](https://img.shields.io/badge/🎙️_VoiceCalc-Live_App-06B6D4?style=for-the-badge)](https://voicecalc-5io4.onrender.com)
+&nbsp;
+[![MaternCare Live](https://img.shields.io/badge/🩺_MaternCare-Live_App-10B981?style=for-the-badge)](https://materncare.vercel.app/)
 
 </div>
 
 ---
 
-<img align="right" width="360" src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif"/>
+<img align="right" width="380" src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif"/>
 
 ## 🧑‍💻 `whoami`
 
@@ -59,10 +65,8 @@ class Developer:
 
 ## ⚡ Engineering Philosophy
 
-> **Bridging the gap between academic theory and real-world impact.**
-
-While coursework provides the foundation, I believe true engineering is about **shipping usable products**. 
-My focus is on building scalable, end-to-end applications that solve real problems, prioritizing clean architecture, responsive design, and seamless user experiences.
+> 💡 **"Bridging the gap between academic theory and real-world impact."**  
+> While coursework provides the foundation, true engineering is about **shipping usable products**. My focus is on building scalable, end-to-end applications that solve real problems with clean architecture, responsive UI, and seamless user experiences.
 
 ---
 
@@ -70,41 +74,37 @@ My focus is on building scalable, end-to-end applications that solve real proble
 
 <div align="center">
 
-**[ Languages ]**
+### 💻 Languages
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white)
-![C](https://img.shields.io/badge/C-00599C?style=flat-square&logo=c&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+### 🎨 Frontend Development
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-0F172A?style=for-the-badge&logo=tailwind-css&logoColor=38B2AC)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![Recharts](https://img.shields.io/badge/Recharts-22B5BF?style=for-the-badge&logo=chartdotjs&logoColor=white)
 
-**[ Frontend ]**
+### ⚙️ Backend, AI & Databases
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![REST API](https://img.shields.io/badge/REST_APIs-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-0F172A?style=flat-square&logo=tailwind-css&logoColor=38B2AC)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)
-![Recharts](https://img.shields.io/badge/Recharts-22B5BF?style=flat-square&logo=chartdotjs&logoColor=white)
-
-**[ Backend, AI & Databases ]**
-
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)
-![Ollama](https://img.shields.io/badge/Ollama-000000?style=flat-square&logo=ollama&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![REST API](https://img.shields.io/badge/REST_APIs-FF6C37?style=flat-square&logo=postman&logoColor=white)
-
-**[ Integrations & Tools ]**
-
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
-![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=flat-square&logo=razorpay&logoColor=3395FF)
-![Twilio](https://img.shields.io/badge/Twilio_WhatsApp-F22F46?style=flat-square&logo=twilio&logoColor=white)
+### 🛠️ Developer Tools & Integrations
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)
+![Twilio](https://img.shields.io/badge/Twilio_WhatsApp-F22F46?style=for-the-badge&logo=twilio&logoColor=white)
 
 </div>
 
@@ -114,13 +114,13 @@ My focus is on building scalable, end-to-end applications that solve real proble
 
 <div align="center">
 
-| # | Project | Stack | Description |
-|:---:|:---|:---:|:---|
-| 01 | [**FoodyBuddy**](https://foodybuddy.shop) <br/> *(Live)* | `React` `Flask` `PostgreSQL` `Razorpay` | Full-stack canteen ordering platform with real-time tracking, online payments, WhatsApp notifications, and administrative reporting. |
-| 02 | [**Ace**](https://github.com/jachinsamuel/Ace) <br/> *(Git Copilot)* | `Python` `CLI` `TUI` `Ollama` | Intelligent command-line tool translating natural language to Git commands, auto-generating commits, and offering an interactive TUI dashboard. |
-| 03 | [**Nexus**](https://github.com/jachinsamuel) <br/> *(RAG Workspace)* | `Python` `FastAPI` `SQLite` `Ollama` | Enterprise-grade local RAG platform featuring a Spatial Glassmorphism UI, multi-provider LLM streaming, and automated vector grounding. |
-| 04 | [**VoiceCalc**](https://github.com/jachinsamuel/voicecalc) | `Flask` `Web Speech API` `JS` | Browser-based voice-controlled calculator translating spoken language into mathematical operations in real-time. |
-| 05 | [**MaternCare**](https://materncare.vercel.app/) <br/> *(Live)* | `React` `Flask` `Recharts` `Python` | ML-powered maternal health risk assessment platform utilizing risk scoring algorithms and interactive multi-metric dashboards. |
+| # | Project | Status | Tech Stack | Description |
+|:---:|:---|:---:|:---:|:---|
+| **01** | [**FoodyBuddy**](https://foodybuddy.shop) | 🟢 **Live** | `React` `Flask` `PostgreSQL` `Razorpay` | Full-stack canteen ordering platform with real-time tracking, online payments, WhatsApp notifications, and administrative reporting. |
+| **02** | [**Ace**](https://github.com/jachinsamuel/Ace) | ⚡ **PyPI** | `Python` `CLI` `TUI` `Ollama` | Intelligent command-line tool translating natural language to Git commands, auto-generating commits, and offering an interactive TUI. |
+| **03** | [**Nexus**](https://github.com/jachinsamuel) | 🧠 **RAG** | `Python` `FastAPI` `SQLite` `Ollama` | Enterprise-grade local RAG platform featuring a Spatial Glassmorphism UI, multi-provider LLM streaming, and automated vector grounding. |
+| **04** | [**VoiceCalc**](https://voicecalc-5io4.onrender.com) | 🟢 **Live** | `Flask` `Web Speech API` `JS` | Browser-based voice-controlled calculator translating spoken natural language into mathematical operations in real-time. |
+| **05** | [**MaternCare**](https://materncare.vercel.app/) | 🟢 **Live** | `React` `Flask` `Recharts` `ML` | ML-powered maternal health risk assessment platform utilizing risk scoring algorithms and interactive multi-metric dashboards. |
 
 </div>
 
@@ -128,19 +128,31 @@ My focus is on building scalable, end-to-end applications that solve real proble
 
 ## 💼 Experience & Leadership
 
-**Team Lead — Academic Web Projects**  
+### 👨‍💻 Team Lead — Academic Web Projects
 *Karunya Institute of Technology and Sciences* | *2025 – Present*
 
-* Directed frontend, backend, and database teams across multiple full-stack and AI application lifecycles.
-* Architected core systems for **FoodyBuddy** and engineered high-performance local AI engines like **Nexus**.
-* Established engineering standards by writing comprehensive API references, database schemas, and developer onboarding documentation.
-* Implemented iterative CI/CD practices emphasizing rapid prototyping, user feedback, and seamless deployments.
+* **Architecture & Engineering**: Directed frontend, backend, and database engineers across multiple full-stack and AI application lifecycles.
+* **Core Systems**: Architected core infrastructure for **FoodyBuddy** (payment processing pipeline) and engineered high-performance local AI engines like **Nexus**.
+* **Standards & DevOps**: Established engineering best practices through clear API documentation, database schema design, and automated deployment pipelines.
 
 ---
 
-## 📈 Development Activity
+## 📊 Analytics & Activity
 
 <div align="center">
+
+<table border="0">
+  <tr>
+    <td width="50%" valign="top">
+      <img src="https://github-readme-stats.vercel.app/api?username=jachinsamuel&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6&icon_color=06b6d4" alt="GitHub Stats" width="100%" />
+    </td>
+    <td width="50%" valign="top">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jachinsamuel&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6" alt="Top Languages" width="100%" />
+    </td>
+  </tr>
+</table>
+
+<br/>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jachinsamuel/jachinsamuel/output/github-contribution-grid-snake-dark.svg"/>
@@ -160,16 +172,16 @@ My focus is on building scalable, end-to-end applications that solve real proble
 
 <div align="center">
 
-*Always open to discussing system design, collaborating on full-stack & AI projects, or exploring new engineering opportunities.*
+*Always open to discussing system design, collaborating on full-stack & AI projects, or exploring remote internship opportunities.*
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-jachinsamuel-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/jachinsamuel/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/jachinsamuel/)
 &nbsp;
-[![GitHub](https://img.shields.io/badge/GitHub-jachinsamuel-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jachinsamuel)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jachinsamuel)
 &nbsp;
-[![Email](https://img.shields.io/badge/Email-jachinsamuel007%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jachinsamuel007@gmail.com)
+[![Email](https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jachinsamuel007@gmail.com)
 
 </div>
 
 ---
 
-[![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:24243e,50:302b63,100:0f0c29&height=130&section=footer&animation=twinkling)](https://github.com/jachinsamuel)
+[![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:302b63,50:1f1938,100:0d1117&height=130&section=footer&animation=twinkling)](https://github.com/jachinsamuel)
