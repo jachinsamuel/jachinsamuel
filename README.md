@@ -116,7 +116,7 @@ class Developer:
 |:---:|:---|:---:|:---:|:---|
 | **01** | [**FoodyBuddy**](https://foodybuddy.shop) | **Live** | `React` `Flask` `PostgreSQL` `Razorpay` | Full-stack canteen ordering platform with real-time tracking, online payments, WhatsApp notifications, and administrative reporting. |
 | **02** | [**Ace**](https://github.com/jachinsamuel/Ace) | **PyPI** | `Python` `CLI` `TUI` `Ollama` | Intelligent command-line tool translating natural language to Git commands, auto-generating commits, and offering an interactive TUI. |
-| **03** | [**Nexus**](https://github.com/jachinsamuel) | **RAG** | `Python` `FastAPI` `SQLite` `Ollama` | Enterprise-grade local RAG platform featuring a Spatial Glassmorphism UI, multi-provider LLM streaming, and automated vector grounding. |
+| **03** | [**Nexus**](https://github.com/jachinsamuel/RAG-Nexus) | **RAG** | `Python` `FastAPI` `SQLite` `Ollama` | Enterprise-grade local RAG platform featuring a Spatial Glassmorphism UI, multi-provider LLM streaming, and automated vector grounding. |
 | **04** | [**VoiceCalc**](https://voicecalc-5io4.onrender.com) | **Live** | `Flask` `Web Speech API` `JS` | Browser-based voice-controlled calculator translating spoken natural language into mathematical operations in real-time. |
 | **05** | [**MaternCare**](https://materncare.vercel.app/) | **Live** | `React` `Flask` `Recharts` `ML` | ML-powered maternal health risk assessment platform utilizing risk scoring algorithms and interactive multi-metric dashboards. |
 
