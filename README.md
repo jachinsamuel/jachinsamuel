@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=21&duration=2800&pause=900&color=A78BFA&center=true&vCenter=true&width=860&lines=%F0%9F%9A%80+Full-Stack+%2B+AI+Developer+%7C+React+%2B+FastAPI+%2B+Python;%E2%99%A0%EF%B8%8F+Creator+of+Ace+%E2%80%94+AI-powered+Git+Copilot;%F0%9F%A7%A0+Creator+of+Nexus+%E2%80%94+Cognitive+RAG+%2B+Local+AI+Workspace;%F0%9F%8D%B1+Creator+of+FoodyBuddy+%E2%80%94+Live+at+foodybuddy.shop;%F0%9F%8E%99%EF%B8%8F+Creator+of+VoiceCalc+%E2%80%94+Voice-controlled+calculator;%F0%9F%A9%BA+Creator+of+MaternCare+%E2%80%94+AI+health+risk+analyzer;%F0%9F%8E%93+Computer+Science+%40+Karunya+Institute;%F0%9F%93%A6+Focused+on+shipping+scalable+products)](https://github.com/jachinsamuel)
+[![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=21&duration=2800&pause=900&color=A78BFA&center=true&vCenter=true&width=860&lines=Full-Stack+%2B+AI+Developer+%7C+React+%2B+FastAPI+%2B+Python;Creator+of+Ace+%E2%80%94+AI-powered+Git+Copilot;Creator+of+Nexus+%E2%80%94+Cognitive+RAG+%2B+Local+AI+Workspace;Creator+of+FoodyBuddy+%E2%80%94+Live+at+foodybuddy.shop;Creator+of+VoiceCalc+%E2%80%94+Voice-controlled+calculator;Creator+of+MaternCare+%E2%80%94+AI+health+risk+analyzer;Computer+Science+%40+Karunya+Institute;Focused+on+shipping+scalable+products)](https://github.com/jachinsamuel)
 
 </div>
 
@@ -20,19 +20,17 @@
 
 <br/>
 
-[![FoodyBuddy Live](https://img.shields.io/badge/🍔_FoodyBuddy-Live_App-8B5CF6?style=for-the-badge)](https://foodybuddy.shop)
+[![FoodyBuddy Live](https://img.shields.io/badge/FoodyBuddy-Live_App-8B5CF6?style=for-the-badge)](https://foodybuddy.shop)
 &nbsp;
-[![VoiceCalc Live](https://img.shields.io/badge/🎙️_VoiceCalc-Live_App-06B6D4?style=for-the-badge)](https://voicecalc-5io4.onrender.com)
+[![VoiceCalc Live](https://img.shields.io/badge/VoiceCalc-Live_App-06B6D4?style=for-the-badge)](https://voicecalc-5io4.onrender.com)
 &nbsp;
-[![MaternCare Live](https://img.shields.io/badge/🩺_MaternCare-Live_App-10B981?style=for-the-badge)](https://materncare.vercel.app/)
+[![MaternCare Live](https://img.shields.io/badge/MaternCare-Live_App-10B981?style=for-the-badge)](https://materncare.vercel.app/)
 
 </div>
 
 ---
 
-<img align="right" width="380" src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif"/>
-
-## 🧑‍💻 `whoami`
+## `whoami`
 
 ```python
 from typing import List
@@ -41,7 +39,7 @@ class Developer:
     def __init__(self):
         self.name: str = "Jachin Samuel J"
         self.role: str = "Software Engineer & AI Developer"
-        self.location: str = "India 🇮🇳"
+        self.location: str = "India"
         self.education: str = "B.Tech CSE @ Karunya Institute of Technology and Sciences (CGPA: 8.93)"
         
         self.core_stack: List[str] = [
@@ -59,22 +57,20 @@ class Developer:
         return "Ship fast. Iterate faster. Build what matters."
 ```
 
-<br clear="right"/>
-
 ---
 
-## ⚡ Engineering Philosophy
+## Engineering Philosophy
 
-> 💡 **"Bridging the gap between academic theory and real-world impact."**  
+> **"Bridging the gap between academic theory and real-world impact."**  
 > While coursework provides the foundation, true engineering is about **shipping usable products**. My focus is on building scalable, end-to-end applications that solve real problems with clean architecture, responsive UI, and seamless user experiences.
 
 ---
 
-## 🛠️ Technical Arsenal
+## Technical Arsenal
 
 <div align="center">
 
-### 💻 Languages
+### Languages
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -83,14 +79,14 @@ class Developer:
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-### 🎨 Frontend Development
+### Frontend Development
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-0F172A?style=for-the-badge&logo=tailwind-css&logoColor=38B2AC)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 ![Recharts](https://img.shields.io/badge/Recharts-22B5BF?style=for-the-badge&logo=chartdotjs&logoColor=white)
 
-### ⚙️ Backend, AI & Databases
+### Backend, AI & Databases
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
@@ -98,7 +94,7 @@ class Developer:
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![REST API](https://img.shields.io/badge/REST_APIs-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
-### 🛠️ Developer Tools & Integrations
+### Developer Tools & Integrations
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
@@ -110,25 +106,25 @@ class Developer:
 
 ---
 
-## 🚀 Featured Projects
+## Featured Projects
 
 <div align="center">
 
 | # | Project | Status | Tech Stack | Description |
 |:---:|:---|:---:|:---:|:---|
-| **01** | [**FoodyBuddy**](https://foodybuddy.shop) | 🟢 **Live** | `React` `Flask` `PostgreSQL` `Razorpay` | Full-stack canteen ordering platform with real-time tracking, online payments, WhatsApp notifications, and administrative reporting. |
-| **02** | [**Ace**](https://github.com/jachinsamuel/Ace) | ⚡ **PyPI** | `Python` `CLI` `TUI` `Ollama` | Intelligent command-line tool translating natural language to Git commands, auto-generating commits, and offering an interactive TUI. |
-| **03** | [**Nexus**](https://github.com/jachinsamuel) | 🧠 **RAG** | `Python` `FastAPI` `SQLite` `Ollama` | Enterprise-grade local RAG platform featuring a Spatial Glassmorphism UI, multi-provider LLM streaming, and automated vector grounding. |
-| **04** | [**VoiceCalc**](https://voicecalc-5io4.onrender.com) | 🟢 **Live** | `Flask` `Web Speech API` `JS` | Browser-based voice-controlled calculator translating spoken natural language into mathematical operations in real-time. |
-| **05** | [**MaternCare**](https://materncare.vercel.app/) | 🟢 **Live** | `React` `Flask` `Recharts` `ML` | ML-powered maternal health risk assessment platform utilizing risk scoring algorithms and interactive multi-metric dashboards. |
+| **01** | [**FoodyBuddy**](https://foodybuddy.shop) | **Live** | `React` `Flask` `PostgreSQL` `Razorpay` | Full-stack canteen ordering platform with real-time tracking, online payments, WhatsApp notifications, and administrative reporting. |
+| **02** | [**Ace**](https://github.com/jachinsamuel/Ace) | **PyPI** | `Python` `CLI` `TUI` `Ollama` | Intelligent command-line tool translating natural language to Git commands, auto-generating commits, and offering an interactive TUI. |
+| **03** | [**Nexus**](https://github.com/jachinsamuel) | **RAG** | `Python` `FastAPI` `SQLite` `Ollama` | Enterprise-grade local RAG platform featuring a Spatial Glassmorphism UI, multi-provider LLM streaming, and automated vector grounding. |
+| **04** | [**VoiceCalc**](https://voicecalc-5io4.onrender.com) | **Live** | `Flask` `Web Speech API` `JS` | Browser-based voice-controlled calculator translating spoken natural language into mathematical operations in real-time. |
+| **05** | [**MaternCare**](https://materncare.vercel.app/) | **Live** | `React` `Flask` `Recharts` `ML` | ML-powered maternal health risk assessment platform utilizing risk scoring algorithms and interactive multi-metric dashboards. |
 
 </div>
 
 ---
 
-## 💼 Experience & Leadership
+## Experience & Leadership
 
-### 👨‍💻 Team Lead — Academic Web Projects
+### Team Lead — Academic Web Projects
 *Karunya Institute of Technology and Sciences* | *2025 – Present*
 
 * **Architecture & Engineering**: Directed frontend, backend, and database engineers across multiple full-stack and AI application lifecycles.
@@ -137,14 +133,14 @@ class Developer:
 
 ---
 
-## 📊 Analytics & Activity
+## Analytics & Activity
 
 <div align="center">
 
 <table border="0">
   <tr>
     <td width="50%" valign="top">
-      <img src="https://github-readme-stats.vercel.app/api?username=jachinsamuel&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6&icon_color=06b6d4" alt="GitHub Stats" width="100%" />
+      <img src="https://github-readme-stats.vercel.app/api?username=jachinsamuel&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6&icon_color=06b6d4" alt="GitHub Stats" width="100%" />
     </td>
     <td width="50%" valign="top">
       <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jachinsamuel&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6" alt="Top Languages" width="100%" />
@@ -168,7 +164,7 @@ class Developer:
 
 ---
 
-## 🌐 Let's Connect
+## Let's Connect
 
 <div align="center">
 
