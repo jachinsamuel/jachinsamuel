@@ -137,13 +137,19 @@ class Developer:
 
 <div align="center">
 
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=jachinsamuel&theme=tokyo-night&area=true&hide_border=true" alt="Contribution Graph" width="100%" />
+
+<br/><br/>
+
 <table border="0">
   <tr>
     <td width="50%" valign="top">
-      <img src="https://github-readme-stats.vercel.app/api?username=jachinsamuel&show_icons=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6&icon_color=06b6d4" alt="GitHub Stats" width="100%" />
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jachinsamuel&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6" alt="Top Languages" width="100%" />
     </td>
     <td width="50%" valign="top">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jachinsamuel&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=8b5cf6" alt="Top Languages" width="100%" />
+      <a href="https://github.com/jachinsamuel">
+        <img src="https://streak-stats.demolab.com?user=jachinsamuel&theme=tokyonight-duo&hide_border=true&background=0D1117&ring=A78BFA&fire=F472B6&currStreakLabel=A78BFA&sideLabels=38BDAE&dates=8B949E&currStreakNum=C9D1D9&sideNums=C9D1D9&stroke=0D1117&border_radius=12" alt="Streak Stats" width="100%" />
+      </a>
     </td>
   </tr>
 </table>
@@ -155,10 +161,6 @@ class Developer:
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jachinsamuel/jachinsamuel/output/github-contribution-grid-snake.svg"/>
   <img alt="Snake animation" src="https://raw.githubusercontent.com/jachinsamuel/jachinsamuel/output/github-contribution-grid-snake.svg"/>
 </picture>
-
-<br/>
-
-[![Streak](https://streak-stats.demolab.com?user=jachinsamuel&theme=tokyonight-duo&hide_border=true&background=0D1117&ring=A78BFA&fire=F472B6&currStreakLabel=A78BFA&sideLabels=38BDAE&dates=8B949E&currStreakNum=C9D1D9&sideNums=C9D1D9&stroke=0D1117&border_radius=12)](https://github.com/jachinsamuel)
 
 </div>
 
