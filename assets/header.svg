@@ -1,102 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 260" width="100%" height="260">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 250" width="100%" height="250">
   <defs>
-    <!-- Fluid chromatic animated gradient -->
-    <linearGradient id="chromaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c084fc">
-        <animate attributeName="stop-color" values="#c084fc;#38bdf8;#34d399;#f472b6;#fbbf24;#c084fc" dur="6s" repeatCount="indefinite" />
+    <!-- Vibrant Chromatic Animated Gradient -->
+    <linearGradient id="vibrantGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6">
+        <animate attributeName="stop-color" values="#8b5cf6;#ec4899;#3b82f6;#06b6d4;#10b981;#8b5cf6" dur="7s" repeatCount="indefinite" />
       </stop>
-      <stop offset="35%" stop-color="#38bdf8">
-        <animate attributeName="stop-color" values="#38bdf8;#34d399;#f472b6;#fbbf24;#c084fc;#38bdf8" dur="6s" repeatCount="indefinite" />
+      <stop offset="25%" stop-color="#ec4899">
+        <animate attributeName="stop-color" values="#ec4899;#3b82f6;#06b6d4;#10b981;#8b5cf6;#ec4899" dur="7s" repeatCount="indefinite" />
       </stop>
-      <stop offset="70%" stop-color="#34d399">
-        <animate attributeName="stop-color" values="#34d399;#f472b6;#fbbf24;#c084fc;#38bdf8;#34d399" dur="6s" repeatCount="indefinite" />
+      <stop offset="50%" stop-color="#3b82f6">
+        <animate attributeName="stop-color" values="#3b82f6;#06b6d4;#10b981;#8b5cf6;#ec4899;#3b82f6" dur="7s" repeatCount="indefinite" />
       </stop>
-      <stop offset="100%" stop-color="#f472b6">
-        <animate attributeName="stop-color" values="#f472b6;#fbbf24;#c084fc;#38bdf8;#34d399;#f472b6" dur="6s" repeatCount="indefinite" />
+      <stop offset="75%" stop-color="#06b6d4">
+        <animate attributeName="stop-color" values="#06b6d4;#10b981;#8b5cf6;#ec4899;#3b82f6;#06b6d4" dur="7s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#10b981">
+        <animate attributeName="stop-color" values="#10b981;#8b5cf6;#ec4899;#3b82f6;#06b6d4;#10b981" dur="7s" repeatCount="indefinite" />
       </stop>
     </linearGradient>
 
-    <!-- Laser scanner gradient -->
+    <!-- Laser Scanner Gradient -->
     <linearGradient id="laserGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#c084fc" stop-opacity="0" />
-      <stop offset="50%" stop-color="#38bdf8" stop-opacity="1">
-        <animate attributeName="stop-color" values="#38bdf8;#f472b6;#c084fc;#34d399;#38bdf8" dur="4s" repeatCount="indefinite" />
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0" />
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="1">
+        <animate attributeName="stop-color" values="#06b6d4;#ec4899;#8b5cf6;#3b82f6;#06b6d4" dur="4s" repeatCount="indefinite" />
       </stop>
-      <stop offset="100%" stop-color="#f472b6" stop-opacity="0" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
     </linearGradient>
 
-    <!-- Neon Glow Filter -->
-    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3.5" result="blur" />
+    <!-- Subtle Glow Filter -->
+    <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
-
-    <!-- Clip window to prevent text spilling -->
-    <clipPath id="terminalClip">
-      <rect x="15" y="46" width="820" height="200" rx="4" />
-    </clipPath>
   </defs>
 
   <style>
     .terminal-window { fill: #0d1117; stroke: #30363d; stroke-width: 1.5; rx: 10px; }
-    .mono-title { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: 38px; font-weight: 900; letter-spacing: 8px; fill: url(#chromaGrad); }
-    .ascii-art { font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: bold; fill: url(#chromaGrad); white-space: pre; }
-    .sub-tagline { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12.5px; font-weight: 700; fill: #c9d1d9; letter-spacing: 3px; }
-    .prompt-text { font-family: 'Courier New', Courier, monospace; font-size: 11.5px; fill: #8b949e; letter-spacing: 0.5px; }
-    .data-pill { font-family: 'Courier New', Courier, monospace; font-size: 11.5px; font-weight: 600; fill: url(#chromaGrad); }
-    .cursor-block { fill: #38bdf8; animation: blinkCursor 0.9s infinite; }
-    @keyframes blinkCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .ascii-text { font-family: 'Courier New', Courier, 'Fira Code', monospace; font-size: 11.5px; font-weight: 700; fill: url(#vibrantGrad); white-space: pre; }
+    .window-title { font-family: 'Courier New', Courier, monospace; font-size: 11px; fill: #8b949e; letter-spacing: 0.5px; }
+    .clear-title { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 13.5px; font-weight: 800; letter-spacing: 4px; fill: #f0f6fc; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 11.5px; font-weight: 600; fill: #8b949e; letter-spacing: 2px; }
+    .status-text { font-family: 'Courier New', Courier, monospace; font-size: 11px; fill: url(#vibrantGrad); font-weight: 600; }
+    .cursor { fill: #06b6d4; animation: blink 1s infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   </style>
 
   <!-- Terminal Window Base -->
-  <rect x="5" y="5" width="840" height="250" class="terminal-window" />
+  <rect x="5" y="5" width="840" height="240" class="terminal-window" />
 
   <!-- Top Title Bar -->
-  <line x1="5" y1="42" x2="845" y2="42" stroke="#21262d" stroke-width="1.2" />
-  <circle cx="28" cy="24" r="5" fill="#f85149" opacity="0.85" />
-  <circle cx="45" cy="24" r="5" fill="#e3b341" opacity="0.85" />
-  <circle cx="62" cy="24" r="5" fill="#3fb950" opacity="0.85" />
-  <text x="84" y="28" class="prompt-text">jachin@system:~ [ascii.engine // interactive]</text>
-  <text x="710" y="28" class="prompt-text">NODE: 0x7F [OK]</text>
+  <line x1="5" y1="38" x2="845" y2="38" stroke="#21262d" stroke-width="1.2" />
+  <circle cx="26" cy="22" r="5" fill="#f85149" opacity="0.85" />
+  <circle cx="42" cy="22" r="5" fill="#e3b341" opacity="0.85" />
+  <circle cx="58" cy="22" r="5" fill="#3fb950" opacity="0.85" />
+  <text x="80" y="26" class="window-title">jachin@system:~ [ascii.engine // interactive]</text>
+  <text x="725" y="26" class="window-title">SYS: 200 OK</text>
 
-  <g clip-path="url(#terminalClip)">
-    <!-- Top ASCII Moving Cyber Ribbon -->
-    <g class="ascii-art">
-      <text x="0" y="68">
-        +===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+
-        <animate attributeName="x" values="0;-110;0" dur="5s" repeatCount="indefinite" />
-      </text>
-    </g>
-
-    <!-- Centerpiece: Instantly Readable Name with Chromatic Glow -->
-    <g filter="url(#neonGlow)">
-      <text x="50%" y="116" text-anchor="middle" class="mono-title">JACHIN SAMUEL</text>
-    </g>
-
-    <!-- Subtitle Spec -->
-    <text x="50%" y="146" text-anchor="middle" class="sub-tagline">SOFTWARE ENGINEER • FULL-STACK &amp; APPLIED AI SYSTEMS</text>
-
-    <!-- Moving ASCII Oscilloscope Waveform -->
-    <g class="ascii-art">
-      <text x="0" y="174">
-        .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:.
-        <animate attributeName="x" values="0;-150;0" dur="4.5s" repeatCount="indefinite" />
-      </text>
-    </g>
-
-    <!-- Sweeping Laser Scanline -->
-    <line x1="20" y1="190" x2="830" y2="190" stroke="#21262d" stroke-width="1" />
-    <rect x="20" y="189" width="180" height="2" fill="url(#laserGrad)">
-      <animate attributeName="x" values="20;650;20" dur="3.8s" repeatCount="indefinite" />
-    </rect>
-
-    <!-- Bottom Command Line State -->
-    <text x="30" y="218" class="data-pill">&gt; system.status: 0_errors</text>
-    <text x="235" y="218" class="data-pill">| stack: [react • fastapi • ollama • postgres]</text>
-    <text x="680" y="218" class="data-pill">| mode: [production]</text>
-    <rect x="815" y="207" width="8" height="14" class="cursor-block" />
+  <!-- Clear, Legible ASCII Art with Vibrant Chromatic Glow -->
+  <g filter="url(#glowFilter)">
+    <text x="50%" y="66" text-anchor="middle" class="ascii-text">     _   _    ____ _   _ ___ _   _        ____    _    __  __ _   _ _____ _     </text>
+    <text x="50%" y="82" text-anchor="middle" class="ascii-text">    | | / \  / ___| | | |_ _| \ | |      / ___|  / \  |  \/  | | | | ____| |    </text>
+    <text x="50%" y="98" text-anchor="middle" class="ascii-text"> _  | |/ _ \| |   | |_| || ||  \| |      \___ \ / _ \ | |\/| | | | |  _| | |    </text>
+    <text x="50%" y="114" text-anchor="middle" class="ascii-text">| |_| / ___ \ |___|  _  || || |\  |       ___) / ___ \| |  | | |_| | |___| |___ </text>
+    <text x="50%" y="130" text-anchor="middle" class="ascii-text"> \___/_/   \_\____|_| |_|___|_| \_|      |____/_/   \_\_|  |_|\___/|_____|_____|</text>
   </g>
+
+  <!-- Instant Visual Anchor: Clear Bold Name + Subtitle -->
+  <text x="50%" y="160" text-anchor="middle" class="clear-title">JACHIN SAMUEL</text>
+  <text x="50%" y="180" text-anchor="middle" class="subtitle">SOFTWARE ENGINEER • FULL-STACK &amp; APPLIED AI SYSTEMS</text>
+
+  <!-- Sweeping Laser Scanline -->
+  <line x1="20" y1="198" x2="830" y2="198" stroke="#21262d" stroke-width="1" />
+  <rect x="20" y="197" width="160" height="2" fill="url(#laserGrad)">
+    <animate attributeName="x" values="20;670;20" dur="4s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Bottom Terminal Status Bar -->
+  <text x="30" y="222" class="status-text">&gt; system.status: [operational]</text>
+  <text x="240" y="222" class="status-text">| core: [react • fastapi • ollama • postgresql]</text>
+  <text x="690" y="222" class="status-text">| mode: [production]</text>
+  <rect x="815" y="211" width="7" height="13" class="cursor" />
 </svg>
