@@ -1,7 +1,9 @@
 <div align="center">
 
-<!-- Header Banner -->
-[![Header](https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:161b22&height=160&section=header&text=Jachin%20Samuel&fontSize=42&fontColor=f0f6fc&fontAlignY=42&desc=Software%20Engineer%20%7C%20Full-Stack%20%26%20Applied%20AI%20Systems&descAlignY=68&descSize=14&descColor=8b949e)](https://github.com/jachinsamuel)
+<!-- Animated Colorful ASCII Movement Art Header -->
+<a href="https://github.com/jachinsamuel">
+  <img src="assets/header.svg" width="100%" alt="Jachin Samuel" />
+</a>
 
 <!-- Dynamic Subtitle -->
 [![Typing Subtitle](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=15&duration=3200&pause=1000&color=8B949E&center=true&vCenter=true&width=780&lines=Building+scalable+full-stack+applications+and+applied+AI+systems;Specializing+in+local+RAG+engines%2C+system+design%2C+and+developer+tooling;Creator+of+Ace%2C+Nexus%2C+FoodyBuddy%2C+and+MaternCare)](https://github.com/jachinsamuel)
