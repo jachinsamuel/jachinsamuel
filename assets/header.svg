@@ -1,91 +1,102 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 250" width="100%" height="250">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 260" width="100%" height="260">
   <defs>
-    <!-- Fluid chromatic animated gradient 1 -->
-    <linearGradient id="asciiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a855f7">
-        <animate attributeName="stop-color" values="#a855f7;#ec4899;#06b6d4;#3b82f6;#10b981;#a855f7" dur="7s" repeatCount="indefinite" />
+    <!-- Fluid chromatic animated gradient -->
+    <linearGradient id="chromaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc">
+        <animate attributeName="stop-color" values="#c084fc;#38bdf8;#34d399;#f472b6;#fbbf24;#c084fc" dur="6s" repeatCount="indefinite" />
       </stop>
-      <stop offset="35%" stop-color="#ec4899">
-        <animate attributeName="stop-color" values="#ec4899;#06b6d4;#3b82f6;#10b981;#a855f7;#ec4899" dur="7s" repeatCount="indefinite" />
+      <stop offset="35%" stop-color="#38bdf8">
+        <animate attributeName="stop-color" values="#38bdf8;#34d399;#f472b6;#fbbf24;#c084fc;#38bdf8" dur="6s" repeatCount="indefinite" />
       </stop>
-      <stop offset="70%" stop-color="#06b6d4">
-        <animate attributeName="stop-color" values="#06b6d4;#3b82f6;#10b981;#a855f7;#ec4899;#06b6d4" dur="7s" repeatCount="indefinite" />
+      <stop offset="70%" stop-color="#34d399">
+        <animate attributeName="stop-color" values="#34d399;#f472b6;#fbbf24;#c084fc;#38bdf8;#34d399" dur="6s" repeatCount="indefinite" />
       </stop>
-      <stop offset="100%" stop-color="#3b82f6">
-        <animate attributeName="stop-color" values="#3b82f6;#10b981;#a855f7;#ec4899;#06b6d4;#3b82f6" dur="7s" repeatCount="indefinite" />
+      <stop offset="100%" stop-color="#f472b6">
+        <animate attributeName="stop-color" values="#f472b6;#fbbf24;#c084fc;#38bdf8;#34d399;#f472b6" dur="6s" repeatCount="indefinite" />
       </stop>
     </linearGradient>
 
-    <!-- Scanner gradient -->
-    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#a855f7" stop-opacity="0" />
-      <stop offset="50%" stop-color="#06b6d4" stop-opacity="1">
-        <animate attributeName="stop-color" values="#06b6d4;#ec4899;#a855f7;#3b82f6;#06b6d4" dur="5s" repeatCount="indefinite" />
+    <!-- Laser scanner gradient -->
+    <linearGradient id="laserGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="1">
+        <animate attributeName="stop-color" values="#38bdf8;#f472b6;#c084fc;#34d399;#38bdf8" dur="4s" repeatCount="indefinite" />
       </stop>
-      <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0" />
     </linearGradient>
 
-    <!-- Matrix wave gradient -->
-    <linearGradient id="tagGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#c084fc" />
-    </linearGradient>
-
-    <!-- Subtle neon glow filter -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2.5" result="blur" />
+    <!-- Neon Glow Filter -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
+
+    <!-- Clip window to prevent text spilling -->
+    <clipPath id="terminalClip">
+      <rect x="15" y="46" width="820" height="200" rx="4" />
+    </clipPath>
   </defs>
 
   <style>
-    .terminal-bg { fill: #0d1117; stroke: #30363d; stroke-width: 1.5; rx: 12px; }
-    .ascii-text { font-family: 'Courier New', Courier, 'Fira Code', monospace; font-size: 13.5px; font-weight: 700; fill: url(#asciiGrad); white-space: pre; }
-    .terminal-title { font-family: 'Courier New', Courier, monospace; font-size: 11.5px; fill: #8b949e; letter-spacing: 1px; }
-    .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12.5px; font-weight: 600; fill: #c9d1d9; letter-spacing: 3px; }
-    .meta-tag { font-family: 'Courier New', Courier, monospace; font-size: 11px; fill: url(#tagGrad); font-weight: 600; }
-    .cursor { fill: #06b6d4; animation: blink 1s infinite; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .terminal-window { fill: #0d1117; stroke: #30363d; stroke-width: 1.5; rx: 10px; }
+    .mono-title { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: 38px; font-weight: 900; letter-spacing: 8px; fill: url(#chromaGrad); }
+    .ascii-art { font-family: 'Courier New', Courier, monospace; font-size: 12px; font-weight: bold; fill: url(#chromaGrad); white-space: pre; }
+    .sub-tagline { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12.5px; font-weight: 700; fill: #c9d1d9; letter-spacing: 3px; }
+    .prompt-text { font-family: 'Courier New', Courier, monospace; font-size: 11.5px; fill: #8b949e; letter-spacing: 0.5px; }
+    .data-pill { font-family: 'Courier New', Courier, monospace; font-size: 11.5px; font-weight: 600; fill: url(#chromaGrad); }
+    .cursor-block { fill: #38bdf8; animation: blinkCursor 0.9s infinite; }
+    @keyframes blinkCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   </style>
 
-  <!-- Terminal Window Background -->
-  <rect x="5" y="5" width="840" height="240" class="terminal-bg" />
+  <!-- Terminal Window Base -->
+  <rect x="5" y="5" width="840" height="250" class="terminal-window" />
 
-  <!-- Top Title Bar Divider -->
+  <!-- Top Title Bar -->
   <line x1="5" y1="42" x2="845" y2="42" stroke="#21262d" stroke-width="1.2" />
+  <circle cx="28" cy="24" r="5" fill="#f85149" opacity="0.85" />
+  <circle cx="45" cy="24" r="5" fill="#e3b341" opacity="0.85" />
+  <circle cx="62" cy="24" r="5" fill="#3fb950" opacity="0.85" />
+  <text x="84" y="28" class="prompt-text">jachin@system:~ [ascii.engine // interactive]</text>
+  <text x="710" y="28" class="prompt-text">NODE: 0x7F [OK]</text>
 
-  <!-- Window Control Dots -->
-  <circle cx="30" cy="24" r="5.5" fill="#f85149" opacity="0.85" />
-  <circle cx="48" cy="24" r="5.5" fill="#e3b341" opacity="0.85" />
-  <circle cx="66" cy="24" r="5.5" fill="#3fb950" opacity="0.85" />
+  <g clip-path="url(#terminalClip)">
+    <!-- Top ASCII Moving Cyber Ribbon -->
+    <g class="ascii-art">
+      <text x="0" y="68">
+        +===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+---+===+
+        <animate attributeName="x" values="0;-110;0" dur="5s" repeatCount="indefinite" />
+      </text>
+    </g>
 
-  <!-- Terminal Header Metadata -->
-  <text x="88" y="28" class="terminal-title">jachin@system:~ [ascii.live]</text>
-  <text x="730" y="28" class="terminal-title">SYS_STATUS: 200</text>
+    <!-- Centerpiece: Instantly Readable Name with Chromatic Glow -->
+    <g filter="url(#neonGlow)">
+      <text x="50%" y="116" text-anchor="middle" class="mono-title">JACHIN SAMUEL</text>
+    </g>
 
-  <!-- Glowing Animated ASCII Art -->
-  <g filter="url(#glow)">
-    <text x="50%" y="78" text-anchor="middle" class="ascii-text">       _____   ________  _______   __   _____ ___    __  _____  __________ </text>
-    <text x="50%" y="98" text-anchor="middle" class="ascii-text">      / /   | / ____/ / / /  _/ | / /  / ___//   |  /  |/  / / / / ____/ / </text>
-    <text x="50%" y="118" text-anchor="middle" class="ascii-text"> __  / / /| |/ /   / /_/ // //  |/ /   \__ \/ /| | / /|_/ / / / / __/ / /  </text>
-    <text x="50%" y="138" text-anchor="middle" class="ascii-text">/ /_/ / ___ / /___/ __  // // /|  /   ___/ / ___ |/ /  / / /_/ / /___/ /___</text>
-    <text x="50%" y="158" text-anchor="middle" class="ascii-text">\____/_/  |_\____/_/ /_/___/_/ |_/   /____/_/  |_/_/  /_/\____/_____/_____/</text>
+    <!-- Subtitle Spec -->
+    <text x="50%" y="146" text-anchor="middle" class="sub-tagline">SOFTWARE ENGINEER • FULL-STACK &amp; APPLIED AI SYSTEMS</text>
+
+    <!-- Moving ASCII Oscilloscope Waveform -->
+    <g class="ascii-art">
+      <text x="0" y="174">
+        .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:. .:*~=##=@##=~*:.
+        <animate attributeName="x" values="0;-150;0" dur="4.5s" repeatCount="indefinite" />
+      </text>
+    </g>
+
+    <!-- Sweeping Laser Scanline -->
+    <line x1="20" y1="190" x2="830" y2="190" stroke="#21262d" stroke-width="1" />
+    <rect x="20" y="189" width="180" height="2" fill="url(#laserGrad)">
+      <animate attributeName="x" values="20;650;20" dur="3.8s" repeatCount="indefinite" />
+    </rect>
+
+    <!-- Bottom Command Line State -->
+    <text x="30" y="218" class="data-pill">&gt; system.status: 0_errors</text>
+    <text x="235" y="218" class="data-pill">| stack: [react • fastapi • ollama • postgres]</text>
+    <text x="680" y="218" class="data-pill">| mode: [production]</text>
+    <rect x="815" y="207" width="8" height="14" class="cursor-block" />
   </g>
-
-  <!-- Subtitle Tagline -->
-  <text x="50%" y="188" text-anchor="middle" class="subtitle">SOFTWARE ENGINEER • FULL-STACK &amp; APPLIED AI SYSTEMS</text>
-
-  <!-- Continuous Laser Scanline -->
-  <line x1="20" y1="205" x2="830" y2="205" stroke="#21262d" stroke-width="1" />
-  <rect x="20" y="204" width="160" height="2" fill="url(#scanGrad)">
-    <animate attributeName="x" values="20;670;20" dur="4.5s" repeatCount="indefinite" />
-  </rect>
-
-  <!-- Bottom Terminal Status Bar -->
-  <text x="30" y="228" class="meta-tag">&gt; core.focus: [local_rag, full_stack, developer_tooling]</text>
-  <text x="690" y="228" class="meta-tag">build: release</text>
-  <rect x="795" y="217" width="7" height="13" class="cursor" />
 </svg>
