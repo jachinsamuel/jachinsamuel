@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Convert prepped photo into a clean, monochrome self-typing ASCII art SVG (Andrew6rant style)
+Convert prepped portrait photo into a clean, monochrome self-typing ASCII art SVG
 as specified in Avi Vashishta's blog:
   - Single light-gray color (#c9d1d9) on dark background (#0d1117)
-  - Subject cleanly isolated with high contrast (background washes out to blank spaces)
-  - Each row reveals left-to-right with a block cursor riding the wipe edge
-  - Staggered top to bottom: prints once and freezes cleanly in terminal style
+  - Subject cleanly isolated (background washes out to pure blank spaces)
+  - Each row reveals left-to-right with a cyan block cursor riding the wipe edge
+  - Staggered top to bottom: prints once over ~5s and freezes cleanly in terminal style
 """
 from PIL import Image, ImageEnhance
 import html
@@ -25,15 +25,15 @@ STATUS_H = 30
 ART_W = CANVAS_W - PAD * 2
 COLS = 114
 CELL_W = ART_W / COLS
-CELL_H = CELL_W * 15 / 8
+CELL_H = CELL_W * 1.8
 ROWS = round((CANVAS_H - TITLEBAR_H - STATUS_H - PAD) / CELL_H)
 ART_H = ROWS * CELL_H
 
 RAMP = " .`:-=+*cs#%@"
-CONTRAST = 1.08
+CONTRAST = 1.05
 BRIGHTNESS = 1.0
-GAMMA = 1.18
-WHITE_FLOOR = 0.80
+GAMMA = 1.05
+WHITE_FLOOR = 0.88
 
 BG = "#0d1117"
 BG2 = "#111722"
@@ -42,7 +42,6 @@ TITLE_TEXT = "#7d8590"
 INK = "#c9d1d9"
 CURSOR = "#22d3ee"
 
-# Reveal timing: prints once over ~5 seconds then freezes
 TOTAL_TYPE_DUR = 5.0
 ROW_DUR = TOTAL_TYPE_DUR / ROWS
 STAGGER = ROW_DUR
@@ -93,7 +92,7 @@ def render(rows):
                  f'text-anchor="middle">jachin@github: ~$ ./portrait.sh</text>')
 
     art_top = TITLEBAR_H + 8
-    font_size = CELL_H * 0.88
+    font_size = CELL_H * 0.90
 
     for ry, line in enumerate(rows):
         y = art_top + ry * CELL_H + CELL_H * 0.74

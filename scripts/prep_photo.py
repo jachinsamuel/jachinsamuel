@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-Prepare portrait photo for clean ASCII conversion as specified in Avi Vashishta's blog:
-  1. Remove the background with high-fidelity color + GrabCut segmentation so subject is isolated.
-  2. Bilateral-smooth away flat noise while keeping drawn lines/facial features sharp.
-  3. Tone stretch over the subject only so skin lands in light ranges and facial features stay dark.
-  4. Darken the line work (DoG ridges) -- eyelids, pupils, glasses, and smile are enhanced.
+Prepare portrait photo for ultra-clean, recognizable ASCII art:
+  1. Remove slate-blue studio backdrop cleanly using HSV + color-difference isolation.
+  2. Morphologically clean foreground and keep connected subject (hair, face, neck, shirt, blazer).
+  3. Crop centered headshot portrait (y: 15..420, x: 80..380) so face fills 75% of the frame.
+  4. Apply CLAHE local contrast + gentle unsharp mask to bring out eyes, eyebrows, nose, and lips.
   5. Composite onto pure white (255) so the background maps cleanly to blank spaces.
-  6. Square-crop around the subject with balanced margins.
 
 Output: source-prepped.png (consumed by make_ascii_svg.py)
 """
@@ -28,65 +27,59 @@ def prep():
 
     h, w = img.shape[:2]
 
-    # 1. Color separation & GrabCut segmentation
+    # 1. Clean backdrop isolation (slate-blue backdrop detection)
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     b, g, r = cv2.split(img.astype(np.float32))
 
-    mask = np.zeros((h, w), np.uint8)
-    mask[b - r > 8] = cv2.GC_BGD
-    mask[r - b > 5] = cv2.GC_FGD
-    mask[(b - r <= 8) & (r - b <= 5)] = cv2.GC_PR_FGD
-    mask[0:15, :] = cv2.GC_BGD
-    mask[:, 0:15] = cv2.GC_BGD
-    mask[:, -15:] = cv2.GC_BGD
+    hue = hsv[:, :, 0]
+    sat = hsv[:, :, 1]
+    b_minus_r = b - r
 
-    bgd_model = np.zeros((1, 65), np.float64)
-    fgd_model = np.zeros((1, 65), np.float64)
-    cv2.grabCut(img, mask, None, bgd_model, fgd_model, 5, cv2.GC_INIT_WITH_MASK)
+    is_bg = (hue >= 95) & (hue <= 128) & (sat >= 52) & (b_minus_r >= 15)
 
-    alpha = np.where((mask == cv2.GC_FGD) | (mask == cv2.GC_PR_FGD), 255, 0).astype(np.uint8)
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
-    alpha = cv2.morphologyEx(alpha, cv2.MORPH_CLOSE, kernel)
-    alpha = cv2.morphologyEx(alpha, cv2.MORPH_OPEN, kernel)
+    fg = (~is_bg).astype(np.uint8) * 255
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
+    fg = cv2.morphologyEx(fg, cv2.MORPH_CLOSE, kernel)
 
-    # 2. Grayscale & bilateral smoothing (remove noise while preserving edge gradients)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    smooth = gray
-    for _ in range(3):
-        smooth = cv2.bilateralFilter(smooth, 9, 40, 9)
+    # Keep only the main connected person component
+    num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(fg)
+    main_label = 0
+    max_area = 0
+    for i in range(1, num_labels):
+        area = stats[i, cv2.CC_STAT_AREA]
+        if area > max_area:
+            max_area = area
+            main_label = i
 
-    # 3. Tone stretch over the isolated subject only
-    subj_pixels = smooth[alpha > 128]
-    if len(subj_pixels) == 0:
-        subj_pixels = smooth
-    lo, hi = np.percentile(subj_pixels, [2, 92])
-    tone = np.clip((smooth.astype(np.float32) - lo) / max(hi - lo, 1.0), 0, 1)
+    person_mask = (labels == main_label).astype(np.uint8) * 255
+    contours, _ = cv2.findContours(person_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    filled_mask = np.zeros_like(person_mask)
+    cv2.drawContours(filled_mask, contours, -1, 255, thickness=cv2.FILLED)
 
-    # 4. Enhance facial line work (difference of Gaussians)
-    line_weight = 0.6
-    fine = cv2.GaussianBlur(smooth, (0, 0), 1.5).astype(np.float32)
-    coarse = cv2.GaussianBlur(smooth, (0, 0), 6).astype(np.float32)
-    lines = np.clip((coarse - fine) / 40.0, 0, 1)
-    out = np.clip(tone - line_weight * lines, 0, 1) * 255.0
+    # 2. Crop headshot portrait to maximize face resolution
+    # Focus tightly on head, face, neck, collar, and top of blazer
+    crop_y0, crop_y1 = 15, 420
+    crop_x0, crop_x1 = 80, 380
+
+    cropped_img = img[crop_y0:crop_y1, crop_x0:crop_x1]
+    cropped_mask = filled_mask[crop_y0:crop_y1, crop_x0:crop_x1]
+
+    # 3. Grayscale & CLAHE local contrast enhancement
+    gray = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2GRAY)
+    clahe = cv2.createCLAHE(clipLimit=2.2, tileGridSize=(6, 6))
+    enhanced = clahe.apply(gray)
+
+    # 4. Crisp edge sharpening for distinct eyes, eyebrows, and smile
+    gaussian = cv2.GaussianBlur(enhanced, (0, 0), 1.0)
+    sharp = cv2.addWeighted(enhanced, 1.4, gaussian, -0.4, 0)
 
     # 5. Composite onto pure white (255)
-    feathered = cv2.GaussianBlur(alpha.astype(np.float32) / 255.0, (0, 0), 1.0)
-    out = out * feathered + 255.0 * (1.0 - feathered)
+    feathered = cv2.GaussianBlur(cropped_mask.astype(np.float32) / 255.0, (0, 0), 0.8)
+    out = sharp.astype(np.float32) * feathered + 255.0 * (1.0 - feathered)
+    out = np.clip(out, 0, 255).astype(np.uint8)
 
-    # 6. Square crop centered on the subject with margin
-    ys, xs = np.where(alpha > 20)
-    if len(ys) > 0 and len(xs) > 0:
-        side = max(xs.max() - xs.min(), ys.max() - ys.min()) + 40
-        cx, cy = (xs.min() + xs.max()) // 2, (ys.min() + ys.max()) // 2
-        canvas = np.full((side, side), 255, np.uint8)
-        x0, y0 = cx - side // 2, cy - side // 2
-        sx0, sy0 = max(x0, 0), max(y0, 0)
-        sx1, sy1 = min(x0 + side, out.shape[1]), min(y0 + side, out.shape[0])
-        canvas[sy0 - y0:sy1 - y0, sx0 - x0:sx1 - x0] = out[sy0:sy1, sx0:sx1].astype(np.uint8)
-    else:
-        canvas = out.astype(np.uint8)
-
-    cv2.imwrite(OUT, canvas)
-    print(f"Successfully prepped photo -> {OUT} ({canvas.shape[1]}x{canvas.shape[0]})")
+    cv2.imwrite(OUT, out)
+    print(f"Successfully prepped portrait -> {OUT} ({out.shape[1]}x{out.shape[0]})")
 
 
 if __name__ == "__main__":
