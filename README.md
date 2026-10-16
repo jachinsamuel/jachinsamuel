@@ -2,15 +2,36 @@
 
 <!-- Animated Chromatic ASCII Movement Art Header -->
 <a href="https://github.com/jachinsamuel">
-  <img src="assets/header.svg" width="100%" alt="Jachin Samuel" />
+  <img src="assets/header.svg" width="860" alt="Jachin Samuel" />
 </a>
 
-<!-- Dynamic Subtitle -->
-[![Typing Subtitle](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=15&duration=3200&pause=1000&color=C084FC&center=true&vCenter=true&width=780&lines=Building+scalable+full-stack+applications+and+applied+AI+systems;Specializing+in+local+RAG+engines%2C+system+design%2C+and+developer+tooling;Creator+of+Ace%2C+Nexus%2C+FoodyBuddy%2C+and+MaternCare)](https://github.com/jachinsamuel)
-
+<br/>
 <br/>
 
-<!-- Profile Navigation & Direct Links -->
+<!-- Real Animated Contribution Heatmap -->
+<h3><code>jachin@github ~ $ ./contributions.sh</code></h3>
+
+<img src="./contrib-heatmap.svg" width="860" alt="Jachin Samuel — GitHub contribution heatmap" />
+
+<br/>
+<br/>
+
+<!-- Terminal ASCII Portrait + Neofetch Info Card -->
+<h3><code>jachin@github ~ $ whoami --spec</code></h3>
+
+<table>
+  <tr>
+    <td valign="top"><img src="./jachin-ascii.svg" width="370" alt="Jachin Samuel — ASCII Portrait" /></td>
+    <td valign="top"><img src="./info-card.svg" width="490" alt="Jachin Samuel — Neofetch Info Card" /></td>
+  </tr>
+</table>
+
+<br/>
+<br/>
+
+<!-- Quick Navigation & Live Deployments -->
+<h3><code>jachin@github ~ $ ./deployments.sh</code></h3>
+
 [![Resume](https://img.shields.io/badge/Resume-Download_PDF-8B5CF6?style=flat-square&logo=adobeacrobatreader&logoColor=white)](https://jachin-portfolio.vercel.app/resume.pdf)
 &nbsp;
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/jachinsamuel/)
@@ -18,12 +39,9 @@
 [![Email](https://img.shields.io/badge/Email-Contact_Me-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:jachinsamuel007@gmail.com)
 &nbsp;
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-24292F?style=flat-square&logo=github&logoColor=white)](https://github.com/jachinsamuel)
-&nbsp;
-[![Profile Views](https://komarev.com/ghpvc/?username=jachinsamuel&color=8b5cf6&style=flat-square&label=VIEWS)](https://github.com/jachinsamuel)
 
 <br/>
 
-<!-- Deployed Production Applications -->
 [![FoodyBuddy](https://img.shields.io/badge/FoodyBuddy-Live_App-8B5CF6?style=flat-square&logo=react&logoColor=white)](https://foodybuddy.shop)
 &nbsp;
 [![MaternCare](https://img.shields.io/badge/MaternCare-Live_App-10B981?style=flat-square&logo=vercel&logoColor=white)](https://materncare.vercel.app/)
@@ -31,37 +49,6 @@
 [![VoiceCalc](https://img.shields.io/badge/VoiceCalc-Live_App-06B6D4?style=flat-square&logo=render&logoColor=white)](https://voicecalc-5io4.onrender.com)
 
 </div>
-
----
-
-## Engineering Profile
-
-<table width="100%">
-  <tr>
-    <td width="48%" valign="top">
-      <h3>System Specification</h3>
-      <p>
-        <b>Identity:</b> Jachin Samuel J<br/>
-        <b>Role:</b> Software Engineer • Full-Stack &amp; Applied AI<br/>
-        <b>Institution:</b> Karunya Institute of Technology and Sciences<br/>
-        <b>Academic Standing:</b> CGPA 8.93 / 10.0 (B.Tech CSE)<br/>
-        <b>Location:</b> India<br/>
-        <b>Execution Motto:</b> <i>Ship fast. Iterate faster. Build what matters.</i>
-      </p>
-    </td>
-    <td width="52%" valign="top">
-      <h3>Core Engineering Focus</h3>
-      <p>
-        • <b>Applied AI &amp; Local RAG:</b> Low-latency retrieval pipelines using Ollama and local vector engines without cloud data egress.<br/>
-        • <b>Full-Stack Architecture:</b> End-to-end web systems engineered with React, Next.js, FastAPI, and robust relational backends.<br/>
-        • <b>Systems &amp; Reliability:</b> Transaction processing, verified payment webhooks, and real-time state machines.<br/>
-        • <b>Developer Tooling:</b> CLI applications, automated Git workflow copilots, and interactive terminal interfaces.
-      </p>
-    </td>
-  </tr>
-</table>
-
-> **Engineering Philosophy:** *"Bridging academic theory and real-world impact. True engineering is about shipping scalable, usable products with clean architecture, responsive interfaces, and zero operational friction."*
 
 ---
 
@@ -133,31 +120,15 @@
 
 ---
 
-## Analytics & Telemetry
+## Contribution Activity
 
 <div align="center">
 
-<!-- Symmetrical Analytics Grid -->
-<table border="0" width="100%">
-  <tr>
-    <td width="50%" valign="top">
-      <img src="https://github-readme-stats.vercel.app/api?username=jachinsamuel&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=c084fc&text_color=8b949e&icon_color=c084fc" alt="GitHub Stats" width="100%" />
-    </td>
-    <td width="50%" valign="top">
-      <a href="https://github.com/jachinsamuel">
-        <img src="https://streak-stats.demolab.com?user=jachinsamuel&theme=tokyonight-duo&hide_border=true&background=0D1117&ring=C084FC&fire=C084FC&currStreakLabel=C084FC&sideLabels=8B949E&dates=8B949E&currStreakNum=C9D1D9&sideNums=C9D1D9&stroke=0D1117&border_radius=8" alt="Streak Stats" width="100%" />
-      </a>
-    </td>
-  </tr>
-</table>
-
-<br/>
-
-<!-- Contribution Snake -->
+<!-- Contribution Snake Animation -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jachinsamuel/jachinsamuel/output/github-contribution-grid-snake-dark.svg"/>
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jachinsamuel/jachinsamuel/output/github-contribution-grid-snake.svg"/>
-  <img alt="Contribution Snake Animation" src="https://raw.githubusercontent.com/jachinsamuel/jachinsamuel/output/github-contribution-grid-snake.svg" width="100%"/>
+  <img alt="Contribution Snake Animation" src="https://raw.githubusercontent.com/jachinsamuel/jachinsamuel/output/github-contribution-grid-snake.svg" width="860"/>
 </picture>
 
 </div>
