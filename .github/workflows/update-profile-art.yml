@@ -27,6 +27,8 @@ jobs:
         run: pip install -r scripts/requirements.txt
 
       - name: Scrape real contribution data (no auth needed)
+        env:
+          GH_PROFILE_USER: jachinsamuel
         run: python scripts/fetch_contributions.py
 
       - name: Render animated contribution heatmap SVG
