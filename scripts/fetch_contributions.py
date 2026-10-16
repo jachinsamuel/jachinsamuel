@@ -2,7 +2,7 @@
 """
 Scrape real daily contribution counts from GitHub's public, unauthenticated
 contributions endpoint (the same fragment the profile page itself uses) and
-write data/contributions.json with raw days plus derived stats
+write data/contributions.json with the raw days plus derived stats
 (current streak, longest streak, best day, monthly totals).
 
 No token, no auth, no GraphQL -- just the public HTML GitHub already serves.
@@ -17,7 +17,7 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
-USERNAME = os.environ.get("GH_PROFILE_USER", "jachinsamuel")
+USERNAME = os.environ.get("GH_PROFILE_USER", "AVIVASHISHTA29")
 URL = f"https://github.com/users/{USERNAME}/contributions"
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "contributions.json")
 
@@ -52,8 +52,6 @@ def fetch_days():
 
 
 def compute_current_streak(days):
-    if not days:
-        return 0, None, None
     idx = len(days) - 1
     if days[idx]["count"] == 0:
         idx -= 1  # today isn't over yet -- don't break the streak on it
@@ -89,7 +87,7 @@ def compute_longest_streak(days):
 def build_data(days):
     total = sum(d["count"] for d in days)
     active_days = sum(1 for d in days if d["count"] > 0)
-    best = max(days, key=lambda d: d["count"]) if days else {"date": "N/A", "count": 0}
+    best = max(days, key=lambda d: d["count"])
     cur_len, cur_start, cur_end = compute_current_streak(days)
     long_len, long_start, long_end = compute_longest_streak(days)
 
@@ -102,7 +100,7 @@ def build_data(days):
     return {
         "username": USERNAME,
         "generated_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "range": {"start": days[0]["date"], "end": days[-1]["date"]} if days else {"start": "", "end": ""},
+        "range": {"start": days[0]["date"], "end": days[-1]["date"]},
         "total_contributions": total,
         "active_days": active_days,
         "avg_per_active_day": round(total / active_days, 1) if active_days else 0,
@@ -118,7 +116,7 @@ if __name__ == "__main__":
     days = fetch_days()
     data = build_data(days)
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    with open(OUT_PATH, "w") as f:
         json.dump(data, f, indent=2)
     print(f"wrote {OUT_PATH}: {data['total_contributions']} contributions, "
           f"current streak {data['current_streak']['length']}, "

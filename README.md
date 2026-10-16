@@ -1,9 +1,14 @@
 <div align="center">
 
-<!-- Animated Chromatic ASCII Movement Art Header -->
-<a href="https://github.com/jachinsamuel">
-  <img src="assets/header.svg" width="860" alt="Jachin Samuel" />
-</a>
+<!-- Terminal ASCII Portrait + Neofetch Info Card -->
+<h3><code>jachin@github ~ $ whoami</code></h3>
+
+<table>
+  <tr>
+    <td valign="top"><img src="./jachin-ascii.svg" width="370" alt="Jachin Samuel — ASCII Portrait" /></td>
+    <td valign="top"><img src="./info-card.svg" width="490" alt="Jachin Samuel — Neofetch Info Card" /></td>
+  </tr>
+</table>
 
 <br/>
 <br/>
@@ -12,19 +17,6 @@
 <h3><code>jachin@github ~ $ ./contributions.sh</code></h3>
 
 <img src="./contrib-heatmap.svg" width="860" alt="Jachin Samuel — GitHub contribution heatmap" />
-
-<br/>
-<br/>
-
-<!-- Terminal ASCII Portrait + Neofetch Info Card -->
-<h3><code>jachin@github ~ $ whoami --spec</code></h3>
-
-<table>
-  <tr>
-    <td valign="top"><img src="./jachin-ascii.svg" width="370" alt="Jachin Samuel — ASCII Portrait" /></td>
-    <td valign="top"><img src="./info-card.svg" width="490" alt="Jachin Samuel — Neofetch Info Card" /></td>
-  </tr>
-</table>
 
 <br/>
 <br/>

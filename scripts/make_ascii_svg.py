@@ -1,32 +1,39 @@
 #!/usr/bin/env python3
 """
-Convert portrait photo (assets/avatar.png) into a self-typing monochrome ASCII art SVG.
-Each row is revealed left-to-right with a terminal block cursor, staggered top-to-bottom.
-Canvas is sized to match the height of info-card.svg when placed side-by-side in a 860px table.
+Convert prepped photo into a clean, monochrome self-typing ASCII art SVG (Andrew6rant style)
+as specified in Avi Vashishta's blog:
+  - Single light-gray color (#c9d1d9) on dark background (#0d1117)
+  - Subject cleanly isolated with high contrast (background washes out to blank spaces)
+  - Each row reveals left-to-right with a block cursor riding the wipe edge
+  - Staggered top to bottom: prints once and freezes cleanly in terminal style
 """
-from PIL import Image, ImageEnhance, ImageOps
+from PIL import Image, ImageEnhance
 import html
 import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "..", "assets", "avatar.png")
-OUT = os.path.join(HERE, "..", "jachin-ascii.svg")
-
-COLS = 74
-ROWS = 44
-RAMP = " .`:-=+*cs#%@"  # bright(sparse) -> dark(dense)
+SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "source-prepped.png")
+OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "jachin-ascii.svg")
 
 CANVAS_W = 370
 CANVAS_H = 480
-PAD = 15
+PAD = 14
 TITLEBAR_H = 30
 STATUS_H = 30
 
 ART_W = CANVAS_W - PAD * 2
-ART_H = CANVAS_H - TITLEBAR_H - STATUS_H - PAD
+COLS = 114
 CELL_W = ART_W / COLS
-CELL_H = ART_H / ROWS
+CELL_H = CELL_W * 15 / 8
+ROWS = round((CANVAS_H - TITLEBAR_H - STATUS_H - PAD) / CELL_H)
+ART_H = ROWS * CELL_H
+
+RAMP = " .`:-=+*cs#%@"
+CONTRAST = 1.08
+BRIGHTNESS = 1.0
+GAMMA = 1.18
+WHITE_FLOOR = 0.80
 
 BG = "#0d1117"
 BG2 = "#111722"
@@ -35,21 +42,20 @@ TITLE_TEXT = "#7d8590"
 INK = "#c9d1d9"
 CURSOR = "#22d3ee"
 
-ROW_DUR = 5.0 / ROWS  # entire typing finishes in ~5 seconds
+# Reveal timing: prints once over ~5 seconds then freezes
+TOTAL_TYPE_DUR = 5.0
+ROW_DUR = TOTAL_TYPE_DUR / ROWS
 STAGGER = ROW_DUR
 
-STATIC = bool(os.environ.get("STATIC"))
 
-
-def generate_ascii_grid():
+def convert_image():
     if not os.path.exists(SRC):
-        print(f"Source image not found at {SRC}", file=sys.stderr)
+        print(f"Error: {SRC} does not exist", file=sys.stderr)
         sys.exit(1)
 
     im = Image.open(SRC).convert("L")
-    im = ImageOps.autocontrast(im, cutoff=2)
-    im = ImageEnhance.Contrast(im).enhance(1.35)
-    im = ImageEnhance.Sharpness(im).enhance(1.4)
+    im = ImageEnhance.Brightness(im).enhance(BRIGHTNESS)
+    im = ImageEnhance.Contrast(im).enhance(CONTRAST)
     im = im.resize((COLS, ROWS), Image.LANCZOS)
     px = im.load()
 
@@ -57,21 +63,25 @@ def generate_ascii_grid():
     for y in range(ROWS):
         chars = []
         for x in range(COLS):
-            lum = px[x, y] / 255.0
-            idx = int((1.0 - lum) * (len(RAMP) - 1) + 0.3)
-            idx = max(0, min(len(RAMP) - 1, idx))
-            chars.append(RAMP[idx])
+            lum = pow(px[x, y] / 255.0, GAMMA)
+            if lum >= WHITE_FLOOR:
+                chars.append(" ")
+            else:
+                idx = int((1.0 - lum) * (len(RAMP) - 1) + 0.5)
+                idx = max(0, min(len(RAMP) - 1, idx))
+                chars.append(RAMP[idx])
         rows.append("".join(chars))
     return rows
 
 
-def render(rows_txt):
+def render(rows):
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{CANVAS_W}" height="{CANVAS_H}" '
         f'viewBox="0 0 {CANVAS_W} {CANVAS_H}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">',
         '<defs>'
         f'<linearGradient id="abg" x1="0" y1="0" x2="0" y2="1">'
-        f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient></defs>',
+        f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/>'
+        f'</linearGradient></defs>',
         f'<rect width="{CANVAS_W}" height="{CANVAS_H}" rx="12" fill="url(#abg)"/>',
         f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-1}" rx="12" fill="none" stroke="{FRAME}"/>',
         f'<line x1="0" y1="{TITLEBAR_H}" x2="{CANVAS_W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
@@ -83,32 +93,31 @@ def render(rows_txt):
                  f'text-anchor="middle">jachin@github: ~$ ./portrait.sh</text>')
 
     art_top = TITLEBAR_H + 8
-    font_size = CELL_H * 0.95
+    font_size = CELL_H * 0.88
 
-    for ry, line in enumerate(rows_txt):
-        y = art_top + ry * CELL_H + CELL_H * 0.78
+    for ry, line in enumerate(rows):
+        y = art_top + ry * CELL_H + CELL_H * 0.74
         row_y = art_top + ry * CELL_H
         delay = ry * STAGGER
+
         safe = html.escape(line)
         text = (f'<text xml:space="preserve" x="{PAD}" y="{y:.1f}" fill="{INK}" '
-                f'font-size="{font_size:.1f}" textLength="{ART_W}" lengthAdjust="spacing">{safe}</text>')
-
-        if STATIC:
-            parts.append(text)
-            continue
+                f'font-size="{font_size:.1f}" textLength="{ART_W:.1f}" lengthAdjust="spacing">{safe}</text>')
 
         parts.append(
-            f'<clipPath id="cr{ry}"><rect x="{PAD}" y="{row_y:.1f}" height="{CELL_H:.1f}" width="0">'
-            f'<animate attributeName="width" from="0" to="{ART_W}" begin="{delay:.3f}s" '
-            f'dur="{ROW_DUR:.2f}s" fill="freeze"/></rect></clipPath>'
+            f'<clipPath id="r{ry}"><rect x="{PAD}" y="{row_y:.1f}" height="{CELL_H:.2f}" width="0">'
+            f'<animate attributeName="width" from="0" to="{ART_W:.1f}" begin="{delay:.3f}s" '
+            f'dur="{ROW_DUR:.3f}s" fill="freeze"/></rect></clipPath>'
         )
-        parts.append(f'<g clip-path="url(#cr{ry})">{text}</g>')
+        parts.append(f'<g clip-path="url(#r{ry})">{text}</g>')
+
         parts.append(
-            f'<rect y="{row_y+0.5:.1f}" width="{CELL_W:.1f}" height="{CELL_H-1:.1f}" fill="{CURSOR}" opacity="0">'
-            f'<animate attributeName="x" from="{PAD}" to="{PAD+ART_W}" begin="{delay:.3f}s" '
-            f'dur="{ROW_DUR:.2f}s" fill="freeze"/>'
-            f'<set attributeName="opacity" to="0.9" begin="{delay:.3f}s"/>'
-            f'<set attributeName="opacity" to="0" begin="{delay+ROW_DUR:.3f}s"/></rect>'
+            f'<rect y="{row_y+0.5:.1f}" width="{CELL_W:.2f}" height="{CELL_H-1:.2f}" fill="{CURSOR}" opacity="0">'
+            f'<animate attributeName="x" from="{PAD}" to="{PAD+ART_W:.1f}" begin="{delay:.3f}s" '
+            f'dur="{ROW_DUR:.3f}s" fill="freeze"/>'
+            f'<set attributeName="opacity" to="0.85" begin="{delay:.3f}s"/>'
+            f'<set attributeName="opacity" to="0" begin="{delay+ROW_DUR:.3f}s"/>'
+            f'</rect>'
         )
 
     status_line_y = CANVAS_H - STATUS_H
@@ -126,8 +135,8 @@ def render(rows_txt):
 
 
 if __name__ == "__main__":
-    rows = generate_ascii_grid()
+    rows = convert_image()
     svg = render(rows)
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(svg)
-    print(f"wrote {OUT} ({len(svg)} bytes; {CANVAS_W}x{CANVAS_H})")
+    print(f"Successfully wrote {OUT} ({len(svg)} bytes; {CANVAS_W}x{CANVAS_H})")

@@ -12,11 +12,11 @@ import datetime
 import json
 import os
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.dirname(__file__)
 IN_PATH = os.path.join(HERE, "..", "data", "contributions.json")
 OUT_PATH = os.path.join(HERE, "..", "contrib-heatmap.svg")
 
-# GitHub green ramp: empty -> brightest. Level 5 is neon top end.
+# GitHub-ish green ramp: empty -> brightest. Level 5 is a brighter neon top end.
 PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#69f0a0"]
 
 CELL = 12
@@ -29,7 +29,7 @@ TITLEBAR_H = 30
 
 BG = "#0a0e14"
 BG2 = "#0d1420"
-FRAME = "#30363d"
+FRAME = "#1f6feb"
 MUTED = "#7d8590"
 TEXT = "#e6edf3"
 ACCENT = "#22d3ee"
@@ -45,20 +45,18 @@ CELL_DUR = 0.42
 def level_for(count):
     if count == 0:
         return 0
-    if count <= 3:
+    if count <= 5:
         return 1
-    if count <= 8:
-        return 2
     if count <= 15:
+        return 2
+    if count <= 30:
         return 3
-    if count <= 25:
+    if count <= 50:
         return 4
     return 5
 
 
 def build_grid(days):
-    if not days:
-        return []
     first = datetime.date.fromisoformat(days[0]["date"])
     lead_pad = (first.weekday() + 1) % 7  # sunday=0
     grid = []
@@ -68,7 +66,7 @@ def build_grid(days):
         weekday = (date.weekday() + 1) % 7
         while len(col) < weekday:
             col.append(None)
-        col.append((d["date"], d["count"], d.get("level", level_for(d["count"]))))
+        col.append((d["date"], d["count"], level_for(d["count"])))
         if len(col) == 7:
             grid.append(col)
             col = []
@@ -99,9 +97,7 @@ def render(data):
                 month_labels.append((ci, date.strftime("%b")))
             break
 
-    canvas_w = 860
-    # adjust padding to center or align grid
-    grid_left = PAD + LEFT_LABEL_W
+    canvas_w = PAD + LEFT_LABEL_W + art_w + PAD
     stats_h = 88
     canvas_h = TITLEBAR_H + TOP_LABEL_H + art_h + stats_h + PAD
 
@@ -123,15 +119,16 @@ def render(data):
         '</defs>',
         f'<rect width="{canvas_w}" height="{canvas_h}" rx="12" fill="url(#hbg)"/>',
         f'<rect x="0.5" y="0.5" width="{canvas_w-1}" height="{canvas_h-1}" rx="12" '
-        f'fill="none" stroke="{FRAME}" stroke-width="1"/>',
-        f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
+        f'fill="none" stroke="{FRAME}" stroke-width="1" stroke-opacity="0.55"/>',
+        f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.35"/>',
     ]
     for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
         parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
     parts.append(f'<text x="{canvas_w/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
-                 f'text-anchor="middle">jachin@github: ~/contributions --graph</text>')
+                 f'text-anchor="middle">avi@github: ~/contributions --graph</text>')
 
     grid_top = TITLEBAR_H + TOP_LABEL_H
+    grid_left = PAD + LEFT_LABEL_W
 
     for ci, label in month_labels:
         x = grid_left + ci * STEP
@@ -141,7 +138,7 @@ def render(data):
         y = grid_top + wi * STEP + CELL * 0.78
         parts.append(f'<text x="{PAD}" y="{y:.1f}" fill="{MUTED}" font-size="9">{wname}</text>')
 
-    # the boxes -- rounded rects, diagonal slide-down reveal
+    # the boxes -- each a rounded rect, diagonal slide-down reveal (once, freeze)
     for ci, column in enumerate(grid):
         gx = grid_left + ci * STEP
         for ri, cell in enumerate(column):
@@ -151,15 +148,14 @@ def render(data):
             gy = grid_top + ri * STEP
             delay = ci * COL_T + ri * ROW_T
             plural = "s" if count != 1 else ""
-            color_idx = min(len(PALETTE) - 1, max(0, lvl))
             parts.append(
                 f'<rect class="c" x="{gx}" y="{gy}" width="{CELL}" height="{CELL}" rx="2.5" '
-                f'fill="{PALETTE[color_idx]}" style="animation-delay:{delay:.3f}s">'
+                f'fill="{PALETTE[lvl]}" style="animation-delay:{delay:.3f}s">'
                 f'<title>{date_s}: {count} contribution{plural}</title></rect>'
             )
 
-    # legend: Less [][][][][] More
-    leg_y = grid_top + art_h + 8
+    # legend: Less [][][][][] More (bottom-right of the grid)
+    leg_y = grid_top + art_h + 6
     leg_x = canvas_w - PAD - (len(PALETTE) * (CELL - 1) + 70)
     parts.append(f'<text x="{leg_x}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10" text-anchor="end">Less</text>')
     lx = leg_x + 8
@@ -169,15 +165,16 @@ def render(data):
     parts.append(f'<text x="{lx + 4}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10">More</text>')
 
     sep_y = leg_y + CELL + 14
-    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="{FRAME}" stroke-opacity="0.5"/>')
+    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="{FRAME}" stroke-opacity="0.25"/>')
 
-    cs = data.get("current_streak", {}).get("length", 0)
-    ls = data.get("longest_streak", {}).get("length", 0)
-    total = data.get("total_contributions", 0)
-    best = data.get("best_day", {"count": 0, "date": "N/A"})
-    rng = data.get("range", {"start": "", "end": ""})
+    cs = data["current_streak"]["length"]
+    ls = data["longest_streak"]["length"]
+    total = data["total_contributions"]
+    best = data["best_day"]
+    rng = data["range"]
 
     ly = sep_y + 24
+    # left column: big highlighted numbers; right column: context in muted
     parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="{GREEN}">'
                  f'<tspan font-weight="700">{total:,}</tspan>'
                  f'<tspan fill="{MUTED}"> contributions in the last year</tspan></text>')
@@ -196,9 +193,8 @@ def render(data):
 
 
 if __name__ == "__main__":
-    with open(IN_PATH, "r", encoding="utf-8") as f:
-        data = json.load(f)
+    data = json.load(open(IN_PATH))
     svg = render(data)
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    with open(OUT_PATH, "w") as f:
         f.write(svg)
     print(f"wrote {OUT_PATH} ({len(svg)} bytes)")
