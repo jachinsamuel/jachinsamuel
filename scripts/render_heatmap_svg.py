@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
 Render data/contributions.json (produced by fetch_contributions.py) as a proper
-GitHub-style contribution heatmap SVG: a grid of rounded, colored BOXES in the
-classic 53-week x 7-day calendar, revealed once with a diagonal line-after-line
-slide-down (CSS keyframes, plays on load then freezes -- no looping "glow"), a
-Less->More legend, and a real stats footer.
-
-Run by .github/workflows/update-profile-art.yml after fetch_contributions.py.
+GitHub-style contribution heatmap SVG styled in the Blue Visual System:
+  Midnight #050b14, Deep Navy #091224, Sapphire #1e3a8a, Cyan #38bdf8, Ivory #f0f6fc.
+A grid of rounded, colored BOXES in the classic 53-week x 7-day calendar, revealed
+once with a diagonal line-after-line slide-down (CSS keyframes, plays on load then freezes),
+a Less->More legend, and a real stats footer.
 """
 import datetime
 import json
@@ -16,8 +15,8 @@ HERE = os.path.dirname(__file__)
 IN_PATH = os.path.join(HERE, "..", "data", "contributions.json")
 OUT_PATH = os.path.join(HERE, "..", "contrib-heatmap.svg")
 
-# GitHub-ish green ramp: empty -> brightest. Level 5 is a brighter neon top end.
-PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#69f0a0"]
+# Blue Visual System Palette: deep navy -> royal -> electric blue -> cyan -> icy white
+PALETTE = ["#091326", "#0e3a75", "#1558b0", "#1d7be6", "#38bdf8", "#bae6fd"]
 
 CELL = 12
 GAP = 3
@@ -27,14 +26,14 @@ LEFT_LABEL_W = 30
 TOP_LABEL_H = 20
 TITLEBAR_H = 30
 
-BG = "#0a0e14"
-BG2 = "#0d1420"
-FRAME = "#1f6feb"
-MUTED = "#7d8590"
-TEXT = "#e6edf3"
-ACCENT = "#22d3ee"
-GREEN = "#39d353"
-GOLD = "#f2cc60"
+BG = "#050b14"
+BG2 = "#091224"
+FRAME = "#1e3a8a"
+MUTED = "#64748b"
+TEXT = "#f0f6fc"
+ACCENT = "#38bdf8"
+CYAN = "#38bdf8"
+GOLD = "#bae6fd"
 
 # reveal timing (one-shot)
 COL_T = 0.018   # per-column delay contribution (left -> right sweep)
@@ -119,8 +118,8 @@ def render(data):
         '</defs>',
         f'<rect width="{canvas_w}" height="{canvas_h}" rx="12" fill="url(#hbg)"/>',
         f'<rect x="0.5" y="0.5" width="{canvas_w-1}" height="{canvas_h-1}" rx="12" '
-        f'fill="none" stroke="{FRAME}" stroke-width="1" stroke-opacity="0.55"/>',
-        f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.35"/>',
+        f'fill="none" stroke="{FRAME}" stroke-width="1" stroke-opacity="0.6"/>',
+        f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.4"/>',
     ]
     for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
         parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
@@ -165,7 +164,7 @@ def render(data):
     parts.append(f'<text x="{lx + 4}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10">More</text>')
 
     sep_y = leg_y + CELL + 14
-    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="{FRAME}" stroke-opacity="0.25"/>')
+    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="{FRAME}" stroke-opacity="0.3"/>')
 
     cs = data["current_streak"]["length"]
     ls = data["longest_streak"]["length"]
@@ -174,10 +173,9 @@ def render(data):
     rng = data["range"]
 
     ly = sep_y + 24
-    # left column: big highlighted numbers; right column: context in muted
-    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="{GREEN}">'
+    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="{ACCENT}">'
                  f'<tspan font-weight="700">{total:,}</tspan>'
-                 f'<tspan fill="{MUTED}"> contributions in the last year</tspan></text>')
+                 f'<tspan fill="{MUTED}"> verified contributions in the last year</tspan></text>')
     parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="{MUTED}" text-anchor="end">'
                  f'{rng["start"]} &#8594; {rng["end"]}</text>')
     ly += 24
@@ -195,6 +193,6 @@ def render(data):
 if __name__ == "__main__":
     data = json.load(open(IN_PATH))
     svg = render(data)
-    with open(OUT_PATH, "w") as f:
+    with open(OUT_PATH, "w", encoding="utf-8") as f:
         f.write(svg)
     print(f"wrote {OUT_PATH} ({len(svg)} bytes)")

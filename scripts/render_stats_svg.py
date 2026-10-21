@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
 """
 Render the streak / numbers card from data/contributions.json (written daily by
-fetch_contributions.py) as a terminal-window SVG that sits beside avi-ascii.svg.
-
-The canvas is the same size as the portrait (840 x 880) so the two panels line
-up when the README shows them side by side at equal widths. Fonts are sized for
-that half-width display (~0.5x).
+fetch_contributions.py) as a terminal-window SVG that sits beside jachin-ascii.svg.
+Styled with the Blue Visual System:
+  Midnight #050b14, Deep Navy #091224, Sapphire #1e3a8a, Cyan #38bdf8, Ivory #f0f6fc.
 
 Six stat tiles slide in and their numbers count up to the real value, then a
-monthly-contributions bar chart grows in underneath. The count-up is a stack of
-pre-rendered frames toggled with SMIL <set>, since GitHub runs SMIL/CSS inside
-<img> SVGs but never JS.
-
-    python scripts/render_stats_svg.py [data.json] [output.svg]
+monthly-contributions bar chart grows in underneath.
 """
 import datetime
 import json
@@ -23,16 +17,16 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "data", "contributions.json")
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "stats.svg")
 
-BG = "#0d1117"
-BG2 = "#111722"
-TILE = "#161b22"
-FRAME = "#30363d"
-MUTED = "#7d8590"
-INK = "#e6edf3"
-GREEN = "#39d353"
-BAR = "#26a641"
+BG = "#050b14"
+BG2 = "#091224"
+TILE = "#081329"
+FRAME = "#1e3a8a"
+MUTED = "#64748b"
+INK = "#f0f6fc"
+GREEN = "#38bdf8"
+BAR = "#1d4ed8"
 
-W, H = 840, 880                      # == avi-ascii.svg canvas
+W, H = 840, 880                      # == jachin-ascii.svg canvas
 PAD = 20
 TITLEBAR_H = 30
 COLS, ROWS = 2, 3
@@ -93,8 +87,8 @@ parts = [
     f'<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">'
     f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient></defs>',
     f'<rect width="{W}" height="{H}" rx="12" fill="url(#bg)"/>',
-    f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{FRAME}"/>',
-    f'<line x1="0" y1="{TITLEBAR_H}" x2="{W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
+    f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{FRAME}" stroke-opacity="0.6"/>',
+    f'<line x1="0" y1="{TITLEBAR_H}" x2="{W}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.4"/>',
 ]
 for i, dot in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
     parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dot}"/>')
@@ -111,7 +105,7 @@ for i, (label, value, suffix, caption, accent) in enumerate(tiles):
 
     parts.append(f'<g class="t" style="animation-delay:{start:.2f}s">')
     parts.append(f'<rect x="{x:.1f}" y="{y}" width="{TILE_W:.1f}" height="{TILE_H}" rx="10" '
-                 f'fill="{TILE}" stroke="{FRAME}"/>')
+                 f'fill="{TILE}" stroke="{FRAME}" stroke-opacity="0.5"/>')
     parts.append(f'<text x="{x+24:.1f}" y="{y+40}" fill="{MUTED}" font-size="22">$ {label}</text>')
 
     # count-up frames: ease-out so it decelerates into the real number
@@ -138,7 +132,7 @@ chart_x, chart_w = PAD, W - PAD * 2
 chart_h = H - PAD - CHART_TOP
 parts.append(f'<g class="t" style="animation-delay:{BAR_START - 0.3:.2f}s">')
 parts.append(f'<rect x="{chart_x}" y="{CHART_TOP}" width="{chart_w}" height="{chart_h}" rx="10" '
-             f'fill="{TILE}" stroke="{FRAME}"/>')
+             f'fill="{TILE}" stroke="{FRAME}" stroke-opacity="0.5"/>')
 parts.append(f'<text x="{chart_x+24}" y="{CHART_TOP+40}" fill="{MUTED}" font-size="22">$ contributions / month</text>')
 parts.append('</g>')
 
@@ -164,5 +158,5 @@ for i, m in enumerate(monthly):
 
 parts.append('</svg>')
 svg = "".join(parts)
-open(OUT, "w").write(svg)
+open(OUT, "w", encoding="utf-8").write(svg)
 print(f"wrote {OUT}: {W} x {H}, {len(svg)//1024} KB")

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Build a neofetch-style info card SVG to sit beside the ASCII portrait.
-Colored key/value rows for identity, education, technical stack, and core projects.
+Styled with the Blue Visual System:
+  Midnight #050b14, Deep Navy #091224, Sapphire #1e3a8a, Cyan #38bdf8, Ivory #f0f6fc.
 Lines fade/slide in on a short stagger.
 """
 import html
@@ -18,16 +19,16 @@ KEY_X = PAD
 VAL_X = PAD + 95
 LINE_H = 22
 
-BG = "#0d1117"
-BG2 = "#111722"
-FRAME = "#30363d"
-MUTED = "#7d8590"
-INK = "#c9d1d9"
-KEY = "#ffa657"      # orange keys (classic neofetch style)
-SECTION = "#58a6ff"  # blue section headers
-GREEN = "#3fb950"
-ACCENT = "#22d3ee"
-PURPLE = "#c084fc"
+BG = "#050b14"
+BG2 = "#091224"
+FRAME = "#1e3a8a"
+MUTED = "#64748b"
+INK = "#f0f6fc"
+KEY = "#38bdf8"       # Cyan keys in Blue Visual System
+SECTION = "#60a5fa"   # Sky blue section headers
+GREEN = "#38bdf8"
+ACCENT = "#2563eb"
+CYAN = "#06b6d4"
 
 ROWS = [
     ("host",),
@@ -44,7 +45,7 @@ ROWS = [
     ("kv", "Applied AI", "Ollama, Local RAG, Vector Search"),
     ("gap",),
     ("sec", "Key Deployments"),
-    ("bul", "FoodyBuddy — Live canteen ordering & payments"),
+    ("bul", "FoodyBuddy — Live campus ordering & payments"),
     ("bul", "Ace — AI Git Copilot published on PyPI"),
     ("bul", "Nexus — Enterprise local RAG platform"),
     ("bul", "MaternCare — Maternal risk assessment ML app"),
@@ -74,8 +75,8 @@ def render():
         f'<linearGradient id="ibg" x1="0" y1="0" x2="0" y2="1">'
         f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient></defs>',
         f'<rect width="{W}" height="{H}" rx="12" fill="url(#ibg)"/>',
-        f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{FRAME}"/>',
-        f'<line x1="0" y1="{TITLEBAR_H}" x2="{W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
+        f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{FRAME}" stroke-opacity="0.6"/>',
+        f'<line x1="0" y1="{TITLEBAR_H}" x2="{W}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.4"/>',
     ]
     for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
         parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
@@ -90,35 +91,33 @@ def render():
             continue
         if kind == "host":
             inner = (f'<text x="{KEY_X}" y="{y:.1f}" font-size="13.5" font-weight="700">'
-                     f'<tspan fill="{GREEN}">jachin</tspan><tspan fill="{MUTED}">@</tspan>'
-                     f'<tspan fill="{ACCENT}">github</tspan></text>'
+                     f'<tspan fill="{KEY}">jachin</tspan><tspan fill="{MUTED}">@</tspan>'
+                     f'<tspan fill="{SECTION}">github</tspan></text>'
                      f'<line x1="{KEY_X+112}" y1="{y-4:.1f}" x2="{W-PAD}" y2="{y-4:.1f}" '
-                     f'stroke="{FRAME}" stroke-opacity="0.8"/>')
+                     f'stroke="{FRAME}" stroke-opacity="0.6"/>')
         elif kind == "sec":
             title = esc(row[1])
             inner = (f'<text x="{KEY_X}" y="{y:.1f}" fill="{SECTION}" font-size="12" font-weight="700">'
                      f'&#8212; {title}</text>'
-                     f'<line x1="{KEY_X + 16 + len(row[1])*8}" y1="{y-4:.1f}" x2="{W-PAD}" y2="{y-4:.1f}" '
-                     f'stroke="{FRAME}" stroke-opacity="0.8"/>')
+                     f'<line x1="{KEY_X + len(title)*8 + 20}" y1="{y-4:.1f}" x2="{W-PAD}" y2="{y-4:.1f}" '
+                     f'stroke="{FRAME}" stroke-opacity="0.5"/>')
         elif kind == "kv":
-            key, val = esc(row[1]), esc(row[2])
-            inner = (f'<text x="{KEY_X}" y="{y:.1f}" fill="{KEY}" font-size="12" font-weight="700">{key}</text>'
-                     f'<text x="{VAL_X}" y="{y:.1f}" fill="{INK}" font-size="12">{val}</text>')
+            k, v = esc(row[1]), esc(row[2])
+            inner = (f'<text x="{KEY_X}" y="{y:.1f}" fill="{KEY}" font-size="12" font-weight="700">{k}</text>'
+                     f'<text x="{VAL_X}" y="{y:.1f}" fill="{INK}" font-size="12">{v}</text>')
         elif kind == "bul":
-            txt = esc(row[1])
-            inner = (f'<circle cx="{KEY_X+3}" cy="{y-4:.1f}" r="2.5" fill="{PURPLE}"/>'
-                     f'<text x="{KEY_X+14}" y="{y:.1f}" fill="{INK}" font-size="11.5">{txt}</text>')
-        else:
-            continue
+            v = esc(row[1])
+            inner = (f'<circle cx="{KEY_X+3}" cy="{y-4:.1f}" r="2.5" fill="{CYAN}"/>'
+                     f'<text x="{KEY_X+14}" y="{y:.1f}" fill="{INK}" font-size="11.5">{v}</text>')
         parts.append(rise(inner, i))
         y += LINE_H
 
     parts.append("</svg>")
-    return "".join(parts)
+    svg = "".join(parts)
+    with open(OUT, "w", encoding="utf-8") as f:
+        f.write(svg)
+    print("wrote", OUT, len(svg), "bytes")
 
 
 if __name__ == "__main__":
-    svg = render()
-    with open(OUT, "w", encoding="utf-8") as f:
-        f.write(svg)
-    print(f"wrote {OUT} ({len(svg)} bytes)")
+    render()

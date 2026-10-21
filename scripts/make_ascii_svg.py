@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 Convert prepped portrait photo into a clean, monochrome self-typing ASCII art SVG
-as specified in Avi Vashishta's blog:
-  - Single light-gray color (#c9d1d9) on dark background (#0d1117)
+styled with the Blue Visual System:
+  - High-contrast ivory text (#f0f6fc) on deep midnight canvas (#050b14 -> #091224)
+  - Sapphire frame border (#1e3a8a) with cyan block cursor (#38bdf8)
   - Subject cleanly isolated (background washes out to pure blank spaces)
   - Each row reveals left-to-right with a cyan block cursor riding the wipe edge
   - Staggered top to bottom: prints once over ~5s and freezes cleanly in terminal style
@@ -35,12 +36,12 @@ BRIGHTNESS = 1.0
 GAMMA = 1.05
 WHITE_FLOOR = 0.88
 
-BG = "#0d1117"
-BG2 = "#111722"
-FRAME = "#30363d"
-TITLE_TEXT = "#7d8590"
-INK = "#c9d1d9"
-CURSOR = "#22d3ee"
+BG = "#050b14"
+BG2 = "#091224"
+FRAME = "#1e3a8a"
+TITLE_TEXT = "#64748b"
+INK = "#f0f6fc"
+CURSOR = "#38bdf8"
 
 TOTAL_TYPE_DUR = 5.0
 ROW_DUR = TOTAL_TYPE_DUR / ROWS
@@ -82,8 +83,8 @@ def render(rows):
         f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/>'
         f'</linearGradient></defs>',
         f'<rect width="{CANVAS_W}" height="{CANVAS_H}" rx="12" fill="url(#abg)"/>',
-        f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-1}" rx="12" fill="none" stroke="{FRAME}"/>',
-        f'<line x1="0" y1="{TITLEBAR_H}" x2="{CANVAS_W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
+        f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-1}" rx="12" fill="none" stroke="{FRAME}" stroke-opacity="0.6"/>',
+        f'<line x1="0" y1="{TITLEBAR_H}" x2="{CANVAS_W}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.4"/>',
     ]
 
     for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
@@ -121,7 +122,7 @@ def render(rows):
 
     status_line_y = CANVAS_H - STATUS_H
     status_y = status_line_y + 19
-    parts.append(f'<line x1="0" y1="{status_line_y:.1f}" x2="{CANVAS_W}" y2="{status_line_y:.1f}" stroke="{FRAME}"/>')
+    parts.append(f'<line x1="0" y1="{status_line_y:.1f}" x2="{CANVAS_W}" y2="{status_line_y:.1f}" stroke="{FRAME}" stroke-opacity="0.4"/>')
     parts.append(f'<text x="{PAD}" y="{status_y:.1f}" fill="{TITLE_TEXT}" font-size="11.5">'
                  f'jachin@github:~$ whoami <tspan fill="{INK}">Jachin Samuel J</tspan></text>')
     cursor_x = PAD + len("jachin@github:~$ whoami Jachin Samuel J ") * 6.9
