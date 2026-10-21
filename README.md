@@ -17,11 +17,16 @@
 </p>
 
 <!-- 02. Terminal Workstation Dual-Pane -->
-<p align="center">
-  <img src="./jachin-ascii.svg" width="365" alt="Terminal ASCII Portrait" />
-  &nbsp;&nbsp;
-  <img src="./info-card.svg" width="485" alt="Neofetch System Specifications" />
-</p>
+<div align="center">
+
+<table>
+  <tr>
+    <td valign="top"><img src="./jachin-ascii.svg" width="360" alt="Terminal ASCII Portrait" /></td>
+    <td valign="top"><img src="./info-card.svg" width="480" alt="Neofetch System Specifications" /></td>
+  </tr>
+</table>
+
+</div>
 
 ---
 
